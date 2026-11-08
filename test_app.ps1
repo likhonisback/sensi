@@ -1,4 +1,4 @@
-# ==============================================================================
+﻿# ==============================================================================
 # SENSI PRO - Comprehensive Automated Verification Test Suite (Phase 3 Verified)
 # Tests:
 # 1. All sensitivity controls and numeric boundaries (0-200 clamping, 10-100 button size)
