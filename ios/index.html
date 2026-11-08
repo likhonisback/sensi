@@ -2764,13 +2764,11 @@
  <div class="view-content-area" id="screenView1">
  <div class="top-bar-header">
  <div class="brand-title-group">
- 
+ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="flex-shrink:0;vertical-align:middle"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
  <span>SENSI</span>
  </div>
  <button class="hamburger-btn" onclick="openMenu()" title="Open Navigation Menu">
- 
- 
- 
+ <span class="bar"></span><span class="bar"></span><span class="bar"></span>
  </button>
  </div>
 
@@ -2787,11 +2785,11 @@
  <div class="step-section-title" data-i18n="step_os">1. OPERATING SYSTEM</div>
  <div class="os-toggle-row">
  <button class="os-btn active" id="osBtnAndroid" onclick="selectOS('Android')">
- 
+ <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;vertical-align:middle"><path d="M17.52 15.34a.86.86 0 1 1 0 1.72.86.86 0 0 1 0-1.72zm-11.04 0a.86.86 0 1 1 0 1.72.86.86 0 0 1 0-1.72zM8.1 2.6l1.4-2.4a.3.3 0 0 0-.52-.3L7.56 2.37A8.65 8.65 0 0 0 4 8.5h16a8.65 8.65 0 0 0-3.56-6.13L14.98-.1a.3.3 0 0 0-.52.3l1.4 2.4A8.6 8.6 0 0 0 12 1.9a8.6 8.6 0 0 0-3.9.7zM6.2 9.5A6.2 6.2 0 0 0 0 15.7v.6A6.2 6.2 0 0 0 6.2 22.5h11.6A6.2 6.2 0 0 0 24 16.3v-.6A6.2 6.2 0 0 0 17.8 9.5H6.2z"/></svg>
  <span>Android</span>
  </button>
  <button class="os-btn" id="osBtnIOS" onclick="selectOS('iOS')">
- 
+ <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;vertical-align:middle"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
  <span>iOS</span>
  </button>
  </div>
@@ -2799,22 +2797,22 @@
 
  <!-- 2. MODELO DO DISPOSITIVO (Requirement 4: Empty at launch, searchable) -->
  <div class="card-box">
- <div class="step-section-title" data-i18n="step_device">2. DEVICE MODEL </div>
+ <div class="step-section-title" data-i18n="step_device">2. DEVICE MODEL <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></svg></div>
  <div class="device-input-box">
  
  <input type="text" id="deviceInputS1" placeholder="Search device model (e.g., iPhone 15 Pro, Samsung S23, Poco X3)..." value="" oninput="handleModelSearch(this.value)">
  <div class="autocomplete-list" id="modelAutoList"></div>
  </div>
  <div id="autoDetectedBadge" style="margin-top: 8px; display: none; align-items: center; gap: 6px; background: rgba(0,230,118,0.15); border: 1px solid #00e676; border-radius: 8px; padding: 6px 10px; font-size: 11px; font-weight: 800; color: #00e676;">
- <span id="autoDetectedText">Auto-Detected Device: Calibrating...</span>
+ <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;vertical-align:middle"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg> <span id="autoDetectedText">Auto-Detected Device: Calibrating...</span>
  </div>
  </div>
 
  <!-- 3. GERAR CONFIGURAÇÃO -->
  <div class="card-box" style="display: flex; flex-direction: column; gap: 12px;">
- <div class="step-section-title" data-i18n="step_gen">3. GENERATE CONFIGURATION </div>
+ <div class="step-section-title" data-i18n="step_gen">3. GENERATE CONFIGURATION <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;color:#facc15"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
  <button class="btn-fire-primary" onclick="generateAndNavigateToS2()">
- 
+ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="flex-shrink:0;vertical-align:middle"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
  <span data-i18n="btn_generate">GENERATE CONFIGURATION</span>
  </button>
  </div>
@@ -2826,15 +2824,13 @@
  <div class="view-content-area" id="screenView2" style="display: none;">
  <div class="top-bar-header">
  <div class="brand-title-group">
- 
+ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="flex-shrink:0;vertical-align:middle"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
  <span data-i18n="rec_header">RECOMMENDED SENSI</span>
  </div>
  <div style="display: flex; align-items: center; gap: 8px;">
  <span id="headerSessionIndicator" class="sensi-session-pill" style="display: none; background: rgba(0, 230, 118, 0.15); border: 1px solid #00e676; color: #00e676;"> ACTIVE</span>
  <button class="hamburger-btn" onclick="openMenu()">
- 
- 
- 
+ <span class="bar"></span><span class="bar"></span><span class="bar"></span>
  </button>
  </div>
  </div>
@@ -3124,13 +3120,11 @@
  <div class="view-content-area" id="screenView3" style="display: none;">
  <div class="top-bar-header">
  <div class="brand-title-group">
- 
+ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="flex-shrink:0;vertical-align:middle"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
  <span>SENSI</span>
  </div>
  <button class="hamburger-btn" onclick="openMenu()">
- 
- 
- 
+ <span class="bar"></span><span class="bar"></span><span class="bar"></span>
  </button>
  </div>
 
@@ -3241,9 +3235,7 @@
  <div style="display: flex; align-items: center; gap: 8px;">
  <span id="aimhudStatusBadge" class="aimhud-badge off">OVERLAY: OFF</span>
  <button class="hamburger-btn" onclick="openMenu()">
- 
- 
- 
+ <span class="bar"></span><span class="bar"></span><span class="bar"></span>
  </button>
  </div>
  </div>
@@ -3630,7 +3622,7 @@
  <div class="view-content-area" id="screenView5" style="display: none;">
  <div class="top-bar-header">
  <div class="brand-title-group">
- 
+ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="flex-shrink:0;vertical-align:middle"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
  <div>
  <div style="font-size: 13px; font-weight: 900;"><span style="color: var(--neon-red);">SENSI</span></div>
  <div style="font-size: 9px; font-weight: 800; color: var(--text-muted); letter-spacing: 0.8px;">DRAG AIM LAB</div>
@@ -3640,9 +3632,7 @@
  <span id="s5TopDeviceModel" style="font-size: 11px; font-weight: 700; color: #a4adbe;">Detecting...</span>
  
  <button class="hamburger-btn" onclick="openMenu()">
- 
- 
- 
+ <span class="bar"></span><span class="bar"></span><span class="bar"></span>
  </button>
  </div>
  </div>
@@ -3980,13 +3970,11 @@
  <div class="view-content-area" id="screenView6" style="display: none;">
  <div class="top-bar-header">
  <div class="brand-title-group">
- 
+ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="flex-shrink:0;vertical-align:middle"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
  <span data-i18n="settings_title">SETTINGS</span>
  </div>
  <button class="hamburger-btn" onclick="openMenu()">
- 
- 
- 
+ <span class="bar"></span><span class="bar"></span><span class="bar"></span>
  </button>
  </div>
 
@@ -4102,13 +4090,11 @@
  <div class="view-content-area" id="screenView7" style="display: none;">
  <div class="top-bar-header">
  <div class="brand-title-group">
- 
+ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="flex-shrink:0;vertical-align:middle"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
  <span data-i18n="sensi_phone_header">SENSITIVITY PHONE</span>
  </div>
  <button class="hamburger-btn" onclick="openMenu()">
- 
- 
- 
+ <span class="bar"></span><span class="bar"></span><span class="bar"></span>
  </button>
  </div>
 
@@ -4154,13 +4140,11 @@
  <div class="view-content-area" id="screenView8" style="display: none;">
  <div class="top-bar-header">
  <div class="brand-title-group">
- 
+ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="flex-shrink:0;vertical-align:middle"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
  <span data-i18n="theme_header">THEME PHONE</span>
  </div>
  <button class="hamburger-btn" onclick="openMenu()">
- 
- 
- 
+ <span class="bar"></span><span class="bar"></span><span class="bar"></span>
  </button>
  </div>
 
@@ -4193,15 +4177,13 @@
  <div class="view-content-area" id="screenView9" style="display: none;">
  <div class="top-bar-header">
  <div class="brand-title-group">
- 
+ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="flex-shrink:0;vertical-align:middle"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
  <span data-i18n="regedit_header">REGEDIT ENGINE & CALIBRATION</span>
  </div>
  <div style="display: flex; align-items: center; gap: 8px;">
  <span id="regeditStatusBadge" class="aimhud-badge on">REGEDIT: ACTIVE</span>
  <button class="hamburger-btn" onclick="openMenu()">
- 
- 
- 
+ <span class="bar"></span><span class="bar"></span><span class="bar"></span>
  </button>
  </div>
  </div>
@@ -6264,7 +6246,7 @@
  AppState.selectedOS = os;
  document.getElementById('osBtnAndroid').classList.toggle('active', os === 'Android');
  document.getElementById('osBtnIOS').classList.toggle('active', os === 'iOS');
-
+ <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;vertical-align:middle"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
  // Update DPI visibility based on platform
  if (os === 'iOS') {
  selectDpi(0);
