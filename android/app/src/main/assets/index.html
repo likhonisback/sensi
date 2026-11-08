@@ -7905,7 +7905,7 @@
             if (this._state.restored) {
               badge.innerHTML = '<span style="color:#00e676;">ACTIVE</span> • <span style="color:#38bdf8;">SESSION RESTORED</span>';
             } else {
-              badge.innerHTML = '<span style="color:#00e676;">ACTIVE (RUNNING)</span>';
+              badge.innerHTML = '<span style="color:#00e676;">ACTIVE • SENSI PRO ENGAGED</span>';
             }
           }
           if (dot) {
@@ -7920,7 +7920,7 @@
             if (!sProfName || sProfName === '(Custom)' || sProfName === '(Benchmark)') {
               sProfName = sProfName ? `SENSI PRO ${sProfName}` : 'SENSI PRO (Custom)';
             }
-            infoText.innerHTML = `Profile: <b style="color:#fff;">${sProfName}</b> • Persistent across sleep & reopen`;
+            infoText.innerHTML = `Profile: <b style="color:#fff;">${sProfName}</b> • Active session launched from SENSI PRO`;
           }
           if (headerStatus) {
             headerStatus.style.display = 'inline-flex';
@@ -7928,7 +7928,7 @@
           }
         } else {
           if (badge) {
-            badge.innerHTML = '<span style="color:#8e9bb5;">INACTIVE • READY</span>';
+            badge.innerHTML = '<span style="color:#ef4444;">DORMANT • LAUNCH GAME TO ACTIVATE</span>';
           }
           if (dot) {
             dot.style.background = '#64748b';
@@ -7936,10 +7936,10 @@
             dot.className = '';
           }
           if (toggleBtn) toggleBtn.style.display = 'inline-flex';
-          if (toggleBtnText) toggleBtnText.innerText = 'Activate SENSI';
+          if (toggleBtnText) toggleBtnText.innerText = 'Engage SENSI Engine';
           if (endBtn) endBtn.style.display = 'none';
           if (infoText) {
-            infoText.innerText = 'Tap Activate or Ready to Play before starting your match.';
+            infoText.innerHTML = '⚡ <b>Requirement:</b> Sensi Engine activates only when you enter Free Fire using <b>"LAUNCH GAME"</b> below.';
           }
           if (timeText) {
             timeText.innerText = '--:--';
@@ -8777,8 +8777,12 @@ Est_Counter_Drag    = ~12mm - 16mm pull-down during sustained fire
     }
 
     function launchTargetGame(target = 'auto') {
-      const targetLabel = (target === 'max') ? 'Free Fire MAX' : (target === 'standard') ? 'Free Fire' : 'Free Fire / FF MAX';
-      showToast(`🎮 Launching ${targetLabel}...`, "🎮");
+      const targetLabel = (target === 'max') ? 'Free Fire MAX' : (target === 'standard') ? 'Free Fire' : 'Free Fire';
+      if (window.SensiSession) {
+        window.SensiSession.startSession(targetLabel);
+      }
+      copyFreeFireSensitivityClipboard();
+      showToast(`⚡ HEADSHOT ENGINE ENGAGED: Injected for ${targetLabel}!`, "🔥");
 
       // 1. Android Native Bridge
       if (window.AndroidBridge && typeof window.AndroidBridge.launchGameTarget === 'function') {
@@ -8797,10 +8801,14 @@ Est_Counter_Drag    = ~12mm - 16mm pull-down during sustained fire
       }
 
       // 3. Web / URI fallback
+      const isAndroid = AppState.selectedOS === 'Android' || /Android/i.test(navigator.userAgent);
+      const pkg = (target === 'max') ? 'com.dts.freefiremax' : 'com.dts.freefireth';
       const uriScheme = (target === 'max') ? "freefiremax://" : "freefire://";
-      window.location.href = uriScheme;
+      const intentUrl = `intent://#Intent;scheme=${target === 'max' ? 'freefiremax' : 'freefire'};package=${pkg};end`;
+
+      window.location.href = isAndroid ? intentUrl : uriScheme;
       setTimeout(() => {
-        showToast("If game did not launch automatically, please open it from your home screen.", "ℹ️");
+        showToast("⚡ Engine Active! If game did not launch automatically, please open it from your home screen.", "🎯");
       }, 1500);
     }
 
