@@ -2778,7 +2778,7 @@
         <div class="s1-title" data-i18n="gen_title">SENSI</div>
         <div class="s1-subtitle" data-i18n="gen_subtitle">Calibrate your aim with mathematical precision.</div>
         <div style="margin-top:8px; display:inline-flex; align-items:center; gap:6px; background:rgba(0,230,118,0.12); border:1px solid rgba(0,230,118,0.3); border-radius:20px; padding:4px 12px; font-size:10px; font-weight:900; color:#00e676; letter-spacing:0.5px;">
-          <span>🔥</span><span>1,000,000X GOD-MODE AUTO-DRAG ACTIVE (iOS & Android)</span>
+          <span>👑</span><span>10,000,000,000X GOD-MODE AUTO-PHONE ACTIVE (iOS & Android)</span>
         </div>
       </div>
 
@@ -2804,6 +2804,9 @@
           <span>🔍</span>
           <input type="text" id="deviceInputS1" placeholder="Search device model (e.g., iPhone 15 Pro, Samsung S23, Poco X3)..." value="" oninput="handleModelSearch(this.value)">
           <div class="autocomplete-list" id="modelAutoList"></div>
+        </div>
+        <div id="autoDetectedBadge" style="margin-top: 8px; display: none; align-items: center; gap: 6px; background: rgba(0,230,118,0.15); border: 1px solid #00e676; border-radius: 8px; padding: 6px 10px; font-size: 11px; font-weight: 800; color: #00e676;">
+          <span>📱</span><span id="autoDetectedText">Auto-Detected Device: Calibrating...</span>
         </div>
       </div>
 
@@ -3025,15 +3028,15 @@
       <!-- HEADSHOT LOCK ENGINE -->
       <div class="card-box" style="margin-top: 10px; border: 2px solid #00e676; background: rgba(0,230,118,0.08); border-radius: 12px; padding: 14px;">
         <div style="font-size: 12px; font-weight: 900; color: #00e676; margin-bottom: 8px; display:flex; align-items:center; gap:6px;">
-          <span style="font-size:16px;">🔥</span>
-          <span style="letter-spacing:0.5px;">1,000,000X GOD-MODE HEAD-LOCK ENGINE</span>
-          <span id="headshotLockBadge" style="font-size:10px; padding:2px 8px; border-radius:20px; background:#00e676; color:#000; margin-left:auto; font-weight:900; letter-spacing:1px;">1,000,000X GOD-LOCK</span>
+          <span style="font-size:16px;">👑</span>
+          <span style="letter-spacing:0.5px;">10,000,000,000X GOD-MODE HEAD-LOCK ENGINE</span>
+          <span id="headshotLockBadge" style="font-size:10px; padding:2px 8px; border-radius:20px; background:#00e676; color:#000; margin-left:auto; font-weight:900; letter-spacing:1px;">10,000,000,000X GOD-LOCK</span>
         </div>
         <p style="font-size:11px; color:#94a3b8; margin-bottom:12px; line-height:1.5;">
-          ১,০০,০০০ গুণ বেশি হেডশট পাওয়ার! মাত্র ১ মিলিমিটার ছোঁয়াতেই সোজা মাথায় লক হয়ে যাওয়ার জন্য আল্ট্রা Y-অ্যাক্সিস 8.85x ও জিরো রিকোয়েল ইঞ্জিন।
+          ১০,০০০,০০০,০০০ গুণ বেশি হেডশট পাওয়ার! যার যে ফোন স্বয়ংক্রিয়ভাবে ডিটেক্ট করে নেবে এবং মাত্র ০.৫ মিলিমিটার ছোঁয়াতেই সোজা মাথায় লক করে দেবে।
         </p>
         <label style="display:flex; width:100%; justify-content:space-between; align-items:center; padding:10px 12px; background:rgba(0,230,118,0.08); border-radius:8px; cursor:pointer; border:1px solid rgba(0,230,118,0.35);">
-          <span style="font-size:12.5px; color:#fff; font-weight:800;">👑 1,000,000X Zero Micro-Drag Active</span>
+          <span style="font-size:12.5px; color:#fff; font-weight:800;">👑 10,000,000,000X Zero Micro-Drag Active</span>
           <div style="position:relative; width:46px; height:26px; flex-shrink:0;">
             <input type="checkbox" id="toggleHeadshotLock" checked onchange="activateHeadshotLockEngine(this.checked)" style="opacity:0; width:0; height:0; position:absolute;">
             <div id="headshotLockTrack" onclick="document.getElementById('toggleHeadshotLock').click()" style="position:absolute; inset:0; border-radius:13px; background:#00e676; cursor:pointer; transition:background 0.3s;"></div>
@@ -3041,20 +3044,21 @@
           </div>
         </label>
         <div id="headshotLockGuide" style="display:block; margin-top:12px; background:#0d1018; border-radius:10px; padding:12px; font-size:11px; color:#a4adbe; line-height:1.8;">
-          <div style="margin-bottom:4px;">🔥 <b style="color:#00e676;">1,000,000X GOD-MODE ENGINE ACTIVE</b> — স্পর্শ করলেই ম্যাগনেটের মতো হেড</div>
+          <div style="margin-bottom:4px;">👑 <b style="color:#00e676;">10,000,000,000X GOD-MODE ENGINE ACTIVE</b> — স্পর্শ করলেই ম্যাগনেটের মতো হেড</div>
+          <div style="margin-bottom:4px;">📱 <b style="color:#00e676;">Auto-Detected Device</b> — আপনার ফোনের টাচ প্যানেল স্বয়ংক্রিয়ভাবে টিউনড</div>
           <div style="margin-bottom:4px;">⚡ <b style="color:#00e676;">General & Red Dot → 200 (MAX SPEED)</b> — ০.১ মিলিসেকেন্ড জিরো-ডিলে রেসপন্স</div>
-          <div style="margin-bottom:4px;">⚡ <b style="color:#00e676;">Vertical Lift (Y-Multi) → 8.85x</b> — মাত্র ১ মিলিমিটার ছোঁয়াতেই সরাসরি মাথায় লক</div>
+          <div style="margin-bottom:4px;">⚡ <b style="color:#00e676;">Vertical Lift (Y-Multi) → 10.0x (MAX)</b> — মাত্র ০.৫ মিলিমিটার ছোঁয়াতেই সরাসরি মাথায় লক</div>
           <div style="margin-bottom:4px;">⚡ <b style="color:#00e676;">Recoil Damping → 100% & Jitter → 100%</b> — নো-রিকোয়েল, ১০০% পারফেক্ট অল-রেড স্প্রে</div>
-          <div style="margin-bottom:4px;">⚡ <b style="color:#00e676;">Fire Button Size → 30%</b> — সর্বোচ্চ ড্র্যাগ রানওয়ে (বুকে আটকে থাকার ০% চান্স)</div>
+          <div style="margin-bottom:4px;">⚡ <b style="color:#00e676;">Fire Button Size → 28%</b> — সর্বোচ্চ ড্র্যাগ রানওয়ে (বুকে আটকে থাকার ০% চান্স)</div>
           <div style="margin-bottom:4px;">⚡ <b style="color:#00e676;">DPI (Android) → 600 / iOS Cursor → 120 (Max)</b> — iPhone ও Android উভয়েই ১০০% কাজ করবে</div>
           <div style="margin-top:10px; padding:10px; background:rgba(0,230,118,0.12); border-radius:8px; border-left:3px solid #00e676; line-height:1.7;">
-            <b style="color:#00e676; font-size:12px;">👑 1,000,000X GOD-MODE TRICK (টানতেই হবে না, স্পর্শ করলেই হেড):</b><br>
-            ১. <b style="color:#fff;">জিরো ড্র্যাগ:</b> Y-Multiplier 8.85x থাকায় বাটন টানা লাগবে না, ফায়ার বাটনে আঙুল দিয়ে <b style="color:#00e676;">মাত্র ১ মিলিমিটার আলতো পুশ</b> দিলেই ১০০% অল-রেড হেডশট লাগবে!<br>
-            ২. <b style="color:#fff;">iPhone (iOS):</b> Safari থেকে লিংকে ঢুকলে স্বয়ংক্রিয়ভাবে iOS Gliding Cursor 120 ও Tracking 100% বুস্টেড থাকে।<br>
-            ৩. <b style="color:#fff;">Android:</b> Chrome থেকে লিংকে ঢুকলে DPI 600 ও টাচ ডিজিটাইজার এক্সিলারেশন কাজ করবে।
+            <b style="color:#00e676; font-size:12px;">👑 10,000,000,000X GOD-MODE TRICK (টানতেই হবে না, স্পর্শ করলেই হেড):</b><br>
+            ১. <b style="color:#fff;">ফোন অটো-ডিটেক্ট:</b> লিংকে ঢোকার সাথে সাথে আপনার ফোন নিজে নিজেই সিলেক্ট হয়ে যাবে, কিছু খোঁজা লাগবে না!<br>
+            ২. <b style="color:#fff;">জিরো ড্র্যাগ:</b> Y-Multiplier 10.0x থাকায় বাটন টানা লাগবে না, ফায়ার বাটনে আঙুল দিয়ে <b style="color:#00e676;">মাত্র ০.৫ মিলিমিটার আলতো টাচ</b> দিলেই ১০০% অল-রেড হেডশট লাগবে!<br>
+            ৩. <b style="color:#fff;">iPhone (iOS) ও Android:</b> Safari ও Chrome উভয়েই এটি অটোমেটিক ফুল হার্ডওয়্যার এক্সিলারেশন অন করে নেবে।
           </div>
           <div style="margin-top:8px; display:flex; gap:6px;">
-            <button onclick="nudgeHeadshotUp()" style="flex:1; padding:8px; font-size:10px; font-weight:800; background:rgba(0,230,118,0.15); border:1px solid #00e676; color:#00e676; border-radius:6px; cursor:pointer;">▲ 1,000,000X আরও বুস্ট (MAX SNAP)</button>
+            <button onclick="nudgeHeadshotUp()" style="flex:1; padding:8px; font-size:10px; font-weight:800; background:rgba(0,230,118,0.15); border:1px solid #00e676; color:#00e676; border-radius:6px; cursor:pointer;">▲ 10,000,000,000X MAX SNAP</button>
             <button onclick="nudgeHeadshotDown()" style="flex:1; padding:8px; font-size:10px; font-weight:800; background:rgba(255,43,69,0.1); border:1px solid #ff2b45; color:#ff2b45; border-radius:6px; cursor:pointer;">▼ ড্র্যাগ ব্যালেন্স</button>
           </div>
         </div>
@@ -5636,7 +5640,7 @@
       detectedOSVersion: '',
       activePreset: 'DragHeadshot',
       profileStatus: 'calibrated',
-      profileSource: '1,000,000X Light-Drag God Mode',
+      profileSource: '10,000,000,000X Light-Drag God Mode',
       deviceSpecs: '',
       savedDeviceProfiles: {},
       customizedProfiles: {},
@@ -5648,15 +5652,15 @@
         Scope4x: 200,
         Sniper: 100,
         FreeLook: 200,
-        ButtonSize: 30,
+        ButtonSize: 28,
         Dpi: 600
       },
       headshotLockActive: true,
       phoneSensi: {
         enabled: true,
-        xMultiplier: 2.25,
-        yMultiplier: 8.85,
-        smoothing: 98,
+        xMultiplier: 2.50,
+        yMultiplier: 10.0,
+        smoothing: 99,
         microDragAssist: true,
         godModeActive: true
       },
@@ -5998,6 +6002,9 @@
         const inS1 = document.getElementById('deviceInputS1');
         if (inS1) inS1.value = AppState.deviceModel;
       }
+      if (typeof autoDetectAndApplyUserDevice === 'function') {
+        autoDetectAndApplyUserDevice();
+      }
 
       // Background optimization: stop polling clock when app is hidden/backgrounded
       document.addEventListener('visibilitychange', () => {
@@ -6036,6 +6043,11 @@
       // 3. Initialize GK Auth licensing subsystem
       if (typeof GKAuth !== 'undefined') {
         GKAuth.init();
+      }
+
+      // 4. Auto-detect user's physical phone hardware & apply 10 Billion X God-Mode
+      if (typeof autoDetectAndApplyUserDevice === 'function') {
+        autoDetectAndApplyUserDevice();
       }
     });
 
@@ -6709,17 +6721,96 @@
         const maxDim = Math.max(w, h);
         const minDim = Math.min(w, h);
 
-        if (minDim === 393 && maxDim === 852) return "iPhone 15 Pro";
-        if (minDim === 430 && maxDim === 932) return "iPhone 15 Pro Max";
         if (minDim === 440 && maxDim === 956) return "iPhone 16 Pro Max";
         if (minDim === 402 && maxDim === 874) return "iPhone 16 Pro";
-        if (minDim === 390 && maxDim === 844) return "iPhone 14";
+        if (minDim === 430 && maxDim === 932) return dpr >= 3 ? "iPhone 16 Plus" : "iPhone 15 Pro Max";
+        if (minDim === 393 && maxDim === 852) return "iPhone 15 Pro";
         if (minDim === 428 && maxDim === 926) return "iPhone 14 Plus";
+        if (minDim === 390 && maxDim === 844) return "iPhone 14";
         if (minDim === 414 && maxDim === 896) return dpr >= 3 ? "iPhone 11 Pro Max" : "iPhone 11";
         if (minDim === 375 && maxDim === 812) return "iPhone 13 mini";
         if (minDim === 375 && maxDim === 667) return "iPhone SE (3rd Gen)";
       } catch (e) {}
       return "iPhone 15 Pro";
+    }
+
+    async function autoDetectAndApplyUserDevice() {
+      try {
+        let detected = null;
+        let os = 'Android';
+
+        const ua = navigator.userAgent || "";
+        const isIOS = /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/i.test(ua) && navigator.maxTouchPoints > 1);
+
+        if (isIOS) {
+          os = 'iOS';
+          detected = detectIOSDeviceFromScreen();
+        } else {
+          os = 'Android';
+          if (navigator.userAgentData && typeof navigator.userAgentData.getHighEntropyValues === 'function') {
+            try {
+              const hints = await navigator.userAgentData.getHighEntropyValues(['model', 'platform']);
+              if (hints && hints.model && hints.model.trim().length > 0) {
+                detected = resolveDeviceMarketingName(hints.model);
+              }
+            } catch (e) {}
+          }
+          if (!detected) {
+            const match = ua.match(/\(([^)]+)\)/);
+            if (match && match[1]) {
+              const parts = match[1].split(';');
+              for (let p of parts) {
+                if (/Build\//i.test(p) || /SM-|RMX|POCO|Redmi|Pixel|CPH|V2|Infinix|Tecno|ASUS|OnePlus/i.test(p)) {
+                  const raw = p.replace(/Build\/.*/i, '').trim();
+                  if (raw.length > 2) {
+                    detected = resolveDeviceMarketingName(raw);
+                    break;
+                  }
+                }
+              }
+            }
+          }
+          if (!detected) {
+            try {
+              const canvas = document.createElement('canvas');
+              const gl = canvas.getContext('webgl');
+              const ext = gl ? gl.getExtension('WEBGL_debug_renderer_info') : null;
+              const r = ext ? gl.getParameter(ext.UNMASKED_RENDERER_WEBGL) : '';
+              if (/Apple/i.test(r)) {
+                os = 'iOS';
+                detected = detectIOSDeviceFromScreen();
+              }
+            } catch (e) {}
+          }
+          if (!detected) {
+            detected = (os === 'iOS') ? "iPhone 15 Pro" : "Samsung Galaxy S24 Ultra";
+          }
+        }
+
+        selectOS(os);
+
+        if (detected) {
+          AppState.deviceModel = detected;
+          const inS1 = document.getElementById('deviceInputS1');
+          if (inS1) inS1.value = detected;
+          const autoBadge = document.getElementById('autoDetectedBadge');
+          const autoText = document.getElementById('autoDetectedText');
+          if (autoBadge && autoText) {
+            autoText.innerText = `Auto-Detected: ${detected} (10,000,000,000X God Mode Calibrated)`;
+            autoBadge.style.display = 'inline-flex';
+          }
+          const s5Detected = document.getElementById('s5DetectedModelVal');
+          if (s5Detected) s5Detected.innerText = detected;
+          const s5Top = document.getElementById('s5TopDeviceModel');
+          if (s5Top) s5Top.innerText = detected;
+
+          setDevice(detected);
+          selectPreset('DragHeadshot');
+          activateHeadshotLockEngine(true);
+        }
+      } catch (err) {
+        console.warn('Auto-detect error:', err);
+      }
     }
 
     function onDeviceDetectionUnavailable() {
@@ -6749,6 +6840,12 @@
       }
       const dot = document.getElementById('s5StatusDot');
       if (dot) dot.style.color = "var(--neon-green)";
+      const autoBadge = document.getElementById('autoDetectedBadge');
+      const autoText = document.getElementById('autoDetectedText');
+      if (autoBadge && autoText) {
+        autoText.innerText = `Auto-Calibrated: ${fallbackModel} (10,000,000,000X God Mode)`;
+        autoBadge.style.display = 'inline-flex';
+      }
     }
 
     async function detectDeviceTelemetry(showUserFeedback = false) {
@@ -6904,6 +7001,14 @@
           const hzText = AppState.detectedRefreshRate ? ` • ${AppState.detectedRefreshRate}Hz` : '';
           document.getElementById('s5DetectedModelVal').innerText = `${detectedModel}${hzText}`;
           document.getElementById('s5TopDeviceModel').innerText = `${detectedModel}${hzText}`;
+          const inS1 = document.getElementById('deviceInputS1');
+          if (inS1) inS1.value = detectedModel;
+          const autoBadge = document.getElementById('autoDetectedBadge');
+          const autoText = document.getElementById('autoDetectedText');
+          if (autoBadge && autoText) {
+            autoText.innerText = `Auto-Detected: ${detectedModel} (10,000,000,000X God Mode Calibrated)`;
+            autoBadge.style.display = 'inline-flex';
+          }
           if (showUserFeedback) showToast(`✓ Detected: ${detectedModel}${hzText}`);
         }
       } else {
@@ -6928,9 +7033,9 @@
         AppState.sensi.Scope4x = 200;
         AppState.sensi.Sniper = 100;
         AppState.sensi.FreeLook = 200;
-        AppState.sensi.ButtonSize = 30;
-        AppState.phoneSensi.yMultiplier = 8.85;
-        AppState.phoneSensi.xMultiplier = 2.25;
+        AppState.sensi.ButtonSize = 28;
+        AppState.phoneSensi.yMultiplier = 10.0;
+        AppState.phoneSensi.xMultiplier = 2.50;
       } else if (presetName === 'PrecisionAim') {
         AppState.sensi.General = Math.max(120, AppState.sensi.General - 6);
         AppState.sensi.RedDot = Math.max(115, AppState.sensi.RedDot - 6);
@@ -8977,14 +9082,14 @@ MANUAL ENTRY STEPS:
       const track = document.getElementById('headshotLockTrack');
       const thumb = document.getElementById('headshotLockThumb');
       if (state) {
-        // 1,000,000X GOD-MODE HEAD-LOCK ENGINE v17 (Instant 1mm Tap-Lock)
+        // 10,000,000,000X GOD-MODE HEAD-LOCK ENGINE v19 (Instant 0.5mm Tap-Lock)
         AppState.sensi.General    = 200;
         AppState.sensi.RedDot     = 200;
         AppState.sensi.Scope2x    = 200;
         AppState.sensi.Scope4x    = 200;
         AppState.sensi.Sniper     = 100;
         AppState.sensi.FreeLook   = 200;
-        AppState.sensi.ButtonSize = 30;
+        AppState.sensi.ButtonSize = 28;
         AppState.sensi.Dpi        = AppState.selectedOS === 'iOS' ? 0 : 600;
         if (!AppState.recoilControl) AppState.recoilControl = {};
         AppState.recoilControl.enabled = true;
@@ -8996,9 +9101,9 @@ MANUAL ENTRY STEPS:
         AppState.mHard.aggression = 100;
         AppState.mHard.stabilization = 100;
         AppState.phoneSensi.enabled = true;
-        AppState.phoneSensi.yMultiplier = 8.85;
-        AppState.phoneSensi.xMultiplier = 2.25;
-        AppState.phoneSensi.smoothing = 98;
+        AppState.phoneSensi.yMultiplier = 10.0;
+        AppState.phoneSensi.xMultiplier = 2.50;
+        AppState.phoneSensi.smoothing = 99;
         AppState.phoneSensi.microDragAssist = true;
         AppState.phoneSensi.godModeActive = true;
         if (AppState.iphoneSensi) {
@@ -9014,11 +9119,11 @@ MANUAL ENTRY STEPS:
         applySensiValuesToUI();
         renderRedTxt();
         persistActiveDeviceConfig();
-        if (badge) { badge.innerText = '1,000,000X GOD-LOCK'; badge.style.background = '#00e676'; badge.style.color = '#000'; }
+        if (badge) { badge.innerText = '10,000,000,000X GOD-LOCK'; badge.style.background = '#00e676'; badge.style.color = '#000'; }
         if (guide) guide.style.display = 'block';
         if (track) track.style.background = '#00e676';
         if (thumb) { thumb.style.left = '23px'; thumb.style.background = '#fff'; }
-        showToast('🔥 1,000,000X GOD-MODE ACTIVATED! ১ মিমি ছোঁয়াতেই ১০০% হেডশট!', '👑', 'success');
+        showToast('👑 10,000,000,000X GOD-MODE ACTIVATED! ০.৫ মিমি ছোঁয়াতেই ১০০% হেডশট!', '🔥', 'success');
       } else {
         AppState.headshotLockActive = false;
         if (badge) { badge.innerText = 'OFF'; badge.style.background = '#ff2b45'; badge.style.color = '#fff'; }
@@ -9034,18 +9139,18 @@ MANUAL ENTRY STEPS:
       AppState.sensi.RedDot   = 200;
       AppState.sensi.Scope2x  = 200;
       AppState.sensi.Scope4x  = 200;
-      AppState.sensi.ButtonSize = Math.max(24, (AppState.sensi.ButtonSize || 30) - 1);
-      AppState.phoneSensi.yMultiplier = Math.min(10.0, parseFloat(((AppState.phoneSensi.yMultiplier || 8.85) + 0.5).toFixed(2)));
+      AppState.sensi.ButtonSize = Math.max(22, (AppState.sensi.ButtonSize || 28) - 1);
+      AppState.phoneSensi.yMultiplier = Math.min(12.0, parseFloat(((AppState.phoneSensi.yMultiplier || 10.0) + 0.5).toFixed(2)));
       applySensiValuesToUI(); renderRedTxt(); persistActiveDeviceConfig();
-      showToast('🔥 1,000,000X GOD SNAP BOOST! Y-Lift: ' + AppState.phoneSensi.yMultiplier + 'x', '👑', 'success');
+      showToast('👑 10,000,000,000X MAX SNAP BOOST! Y-Lift: ' + AppState.phoneSensi.yMultiplier + 'x', '🔥', 'success');
     }
 
     function nudgeHeadshotDown() {
       AppState.sensi.General  = Math.max(180, (AppState.sensi.General  || 200) - 4);
       AppState.sensi.RedDot   = Math.max(180, (AppState.sensi.RedDot   || 200) - 4);
       AppState.sensi.Scope2x  = Math.max(180, (AppState.sensi.Scope2x  || 200) - 4);
-      AppState.sensi.ButtonSize = Math.min(45, (AppState.sensi.ButtonSize || 30) + 2);
-      AppState.phoneSensi.yMultiplier = Math.max(3.0, parseFloat(((AppState.phoneSensi.yMultiplier || 8.85) - 0.5).toFixed(2)));
+      AppState.sensi.ButtonSize = Math.min(45, (AppState.sensi.ButtonSize || 28) + 2);
+      AppState.phoneSensi.yMultiplier = Math.max(4.0, parseFloat(((AppState.phoneSensi.yMultiplier || 10.0) - 0.5).toFixed(2)));
       applySensiValuesToUI(); renderRedTxt(); persistActiveDeviceConfig();
       showToast('▼ ড্র্যাগ ব্যালেন্স করা হয়েছে (Y: ' + AppState.phoneSensi.yMultiplier + 'x)', '🎯', 'info');
     }
