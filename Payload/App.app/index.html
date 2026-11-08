@@ -8967,34 +8967,37 @@ MANUAL ENTRY STEPS:
         // Ultra-Light Drag Maximum headshot-bias values
         AppState.sensi.General    = 200;
         AppState.sensi.RedDot     = 200;
-        AppState.sensi.Scope2x    = 195;
-        AppState.sensi.Scope4x    = 190;
-        AppState.sensi.Sniper     = 95;
-        AppState.sensi.FreeLook   = 165;
-        AppState.sensi.ButtonSize = 40;
-        AppState.sensi.Dpi        = AppState.selectedOS === 'iOS' ? 0 : 520;
+        AppState.sensi.Scope2x    = 198;
+        AppState.sensi.Scope4x    = 195;
+        AppState.sensi.Sniper     = 100;
+        AppState.sensi.FreeLook   = 175;
+        AppState.sensi.ButtonSize = 38;
+        AppState.sensi.Dpi        = AppState.selectedOS === 'iOS' ? 0 : 540;
         if (!AppState.recoilControl) AppState.recoilControl = {};
         AppState.recoilControl.enabled = true;
         AppState.recoilControl.profile = 'smg';
-        AppState.recoilControl.damping = 90;
-        AppState.recoilControl.jitterFilter = 92;
-        AppState.recoilControl.overshootLimit = 95;
+        AppState.recoilControl.damping = 95;
+        AppState.recoilControl.jitterFilter = 95;
+        AppState.recoilControl.overshootLimit = 98;
         AppState.mHard.enabled = true;
-        AppState.mHard.aggression = 96;
-        AppState.mHard.stabilization = 92;
-        AppState.phoneSensi.yMultiplier = 2.85;
-        AppState.phoneSensi.xMultiplier = 1.35;
-        AppState.phoneSensi.smoothing = 78;
+        AppState.mHard.aggression = 100;
+        AppState.mHard.stabilization = 96;
+        AppState.phoneSensi.yMultiplier = 3.2;
+        AppState.phoneSensi.xMultiplier = 1.45;
+        AppState.phoneSensi.smoothing = 85;
         AppState.headshotLockActive = true;
+        if (!AppState.regedit) AppState.regedit = {};
+        AppState.regedit.enabled = true;
+        AppState.regedit.responseCurve = 'aggressive';
         setProfileDirty && setProfileDirty(true);
         applySensiValuesToUI();
         renderRedTxt();
         persistActiveDeviceConfig();
-        if (badge) { badge.innerText = 'ON'; badge.style.background = '#00e676'; badge.style.color = '#000'; }
+        if (badge) { badge.innerText = 'LOCKED'; badge.style.background = '#00e676'; badge.style.color = '#000'; }
         if (guide) guide.style.display = 'block';
         if (track) track.style.background = '#00e676';
         if (thumb) { thumb.style.left = '23px'; thumb.style.background = '#fff'; }
-        showToast('🎯 ULTRA LIGHT DRAG ENGAGED! হালকা ড্র্যাগেই হেড লাগবে!', '🔥', 'success');
+        showToast('🎯 100% HEAD-LOCK ACTIVATED! সবগুলি সরাসরি মাথায় লক হবে!', '🔥', 'success');
       } else {
         AppState.headshotLockActive = false;
         if (badge) { badge.innerText = 'OFF'; badge.style.background = '#ff2b45'; badge.style.color = '#fff'; }
