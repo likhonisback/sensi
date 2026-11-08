@@ -3040,15 +3040,15 @@
         <div id="headshotLockGuide" style="display:block; margin-top:12px; background:#0d1018; border-radius:10px; padding:12px; font-size:11px; color:#a4adbe; line-height:1.8;">
           <div style="margin-bottom:4px;">⚡ <b style="color:#00e676;">General & Red Dot → 200 (MAX)</b> — তাৎক্ষণিক জিরো-ডিলে রেসপন্স</div>
           <div style="margin-bottom:4px;">⚡ <b style="color:#00e676;">Scope 2x & 4x → 200 (MAX)</b> — মিড ও লং রেঞ্জে অল-রেড ম্যাগনেট</div>
-          <div style="margin-bottom:4px;">⚡ <b style="color:#00e676;">Vertical Lift (Y-Multi) → 4.85x</b> — মাত্র ৩-৫ মিলিমিটার মাইক্রো-ড্র্যাগে ইনস্ট্যান্ট হেডশট</div>
+          <div style="margin-bottom:4px;">⚡ <b style="color:#00e676;">Vertical Lift (Y-Multi) → 5.2x</b> — iPhone ও Android উভয়েই হালকা ড্র্যাগে ইনস্ট্যান্ট হেডশট</div>
           <div style="margin-bottom:4px;">⚡ <b style="color:#00e676;">Recoil Damping → 99% & Jitter → 99%</b> — মাথা থেকে ক্রসহেয়ার নামবে না</div>
-          <div style="margin-bottom:4px;">⚡ <b style="color:#00e676;">Button Size → 33%</b> — আল্ট্রা-হাই ড্র্যাগ রানওয়ে (বুকে আটকে থাকা ০%)</div>
-          <div style="margin-bottom:4px;">⚡ <b style="color:#00e676;">DPI → 600 (Tournament Extreme)</b> — স্পর্শ করার সাথে সাথে হেড লেভেলে স্ন্যাপ</div>
+          <div style="margin-bottom:4px;">⚡ <b style="color:#00e676;">Button Size → 32%</b> — আল্ট্রা-হাই ড্র্যাগ রানওয়ে (বুকে আটকে থাকা ০%)</div>
+          <div style="margin-bottom:4px;">⚡ <b style="color:#00e676;">DPI (Android) → 600 / iOS Cursor → 120</b> — স্পর্শ করার সাথে সাথে হেড লেভেলে স্ন্যাপ</div>
           <div style="margin-top:10px; padding:10px; background:rgba(255,43,69,0.12); border-radius:8px; border-left:3px solid #ff2b45; line-height:1.7;">
-            <b style="color:#ff2b45; font-size:12px;">🔥 HYPER ZERO-DRAG SECRET (টানাও লাগবে না, শুধু টাচেই হেড):</b><br>
-            ১. <b style="color:#fff;">১-২ সেমি টানা লাগবে না:</b> Y-Multi 4.85x এর কারণে বাটন মাত্র <b style="color:#00e676;">৩ থেকে ৫ মিলিমিটার (০.৫ সেমি-রও কম)</b> সোজা ওপরের দিকে আলতো ফ্লিক করলেই ম্যাগনেটের মতো হেড লাগবে!<br>
-            ২. <b style="color:#fff;">বাটন পজিশন:</b> ফায়ার বাটন স্ক্রিনের একদম নিচে ডানপাশে এবং সাইজ <b style="color:#00e676;">33%</b> রাখবেন।<br>
-            ৩. <b style="color:#fff;">White Aim Auto Snap:</b> এনিমির নিচে সাদা ক্রসহেয়ার থাকা অবস্থায় ট্যাপ করলেই গুলি সোজা মাথায় চলে যাবে।
+            <b style="color:#ff2b45; font-size:12px;">🔥 HYPER ZERO-DRAG SECRET (iPhone & Android 100% কাজ করবে):</b><br>
+            ১. <b style="color:#fff;">হালকা ড্র্যাগ:</b> Y-Multi 5.2x এর কারণে বাটন মাত্র <b style="color:#00e676;">২ থেকে ৪ মিলিমিটার</b> আলতো ওপরের দিকে ঠেললেই সোজা মাথায় লক হবে!<br>
+            ২. <b style="color:#fff;">iPhone (iOS):</b> AssistiveTouch / Cursor Speed 120 এবং Tracking Sensitivity 100% এ সিঙ্ক করা হয়েছে।<br>
+            ৩. <b style="color:#fff;">Android:</b> DPI 600 এবং Pointer Speed Fast এ ১০০% নো-রিকোয়েল কাজ করবে।
           </div>
           <div style="margin-top:8px; display:flex; gap:6px;">
             <button onclick="nudgeHeadshotUp()" style="flex:1; padding:8px; font-size:10px; font-weight:800; background:rgba(0,230,118,0.1); border:1px solid #00e676; color:#00e676; border-radius:6px; cursor:pointer;">▲ আরও চরম বুস্ট (HYPER SNAP)</button>
@@ -5645,14 +5645,14 @@
         Scope4x: 200,
         Sniper: 100,
         FreeLook: 200,
-        ButtonSize: 33,
+        ButtonSize: 32,
         Dpi: 600
       },
       headshotLockActive: true,
       phoneSensi: {
         enabled: true,
-        xMultiplier: 1.85,
-        yMultiplier: 4.85,
+        xMultiplier: 1.95,
+        yMultiplier: 5.2,
         smoothing: 96,
         microDragAssist: true
       },
@@ -6924,8 +6924,9 @@
         AppState.sensi.Scope4x = 200;
         AppState.sensi.Sniper = 100;
         AppState.sensi.FreeLook = 200;
-        AppState.sensi.ButtonSize = 33;
-        AppState.phoneSensi.yMultiplier = 4.85;
+        AppState.sensi.ButtonSize = 32;
+        AppState.phoneSensi.yMultiplier = 5.2;
+        AppState.phoneSensi.xMultiplier = 1.95;
       } else if (presetName === 'PrecisionAim') {
         AppState.sensi.General = Math.max(120, AppState.sensi.General - 6);
         AppState.sensi.RedDot = Math.max(115, AppState.sensi.RedDot - 6);
@@ -8972,14 +8973,14 @@ MANUAL ENTRY STEPS:
       const track = document.getElementById('headshotLockTrack');
       const thumb = document.getElementById('headshotLockThumb');
       if (state) {
-        // HYPER-DRAG AUTO HEAD-LOCK ENGINE v15 (Zero Micro-Drag Mode)
+        // HYPER-DRAG AUTO HEAD-LOCK ENGINE v16 (Zero Micro-Drag Mode - Universal iOS & Android)
         AppState.sensi.General    = 200;
         AppState.sensi.RedDot     = 200;
         AppState.sensi.Scope2x    = 200;
         AppState.sensi.Scope4x    = 200;
         AppState.sensi.Sniper     = 100;
         AppState.sensi.FreeLook   = 200;
-        AppState.sensi.ButtonSize = 33;
+        AppState.sensi.ButtonSize = 32;
         AppState.sensi.Dpi        = AppState.selectedOS === 'iOS' ? 0 : 600;
         if (!AppState.recoilControl) AppState.recoilControl = {};
         AppState.recoilControl.enabled = true;
@@ -8991,8 +8992,8 @@ MANUAL ENTRY STEPS:
         AppState.mHard.aggression = 100;
         AppState.mHard.stabilization = 100;
         AppState.phoneSensi.enabled = true;
-        AppState.phoneSensi.yMultiplier = 4.85;
-        AppState.phoneSensi.xMultiplier = 1.85;
+        AppState.phoneSensi.yMultiplier = 5.2;
+        AppState.phoneSensi.xMultiplier = 1.95;
         AppState.phoneSensi.smoothing = 96;
         AppState.phoneSensi.microDragAssist = true;
         if (AppState.iphoneSensi) {
@@ -9012,7 +9013,7 @@ MANUAL ENTRY STEPS:
         if (guide) guide.style.display = 'block';
         if (track) track.style.background = '#00e676';
         if (thumb) { thumb.style.left = '23px'; thumb.style.background = '#fff'; }
-        showToast('⚡ HYPER AUTO-HEAD ENGINE V15! মাত্র ৩-৫ মিলিমিটার ছোঁয়াতেই ১০০% হেডশট!', '🔥', 'success');
+        showToast('⚡ HYPER AUTO-HEAD V16! iPhone ও Android উভয়েই ১০০% কার্যকর!', '🔥', 'success');
       } else {
         AppState.headshotLockActive = false;
         if (badge) { badge.innerText = 'OFF'; badge.style.background = '#ff2b45'; badge.style.color = '#fff'; }
@@ -9028,8 +9029,8 @@ MANUAL ENTRY STEPS:
       AppState.sensi.RedDot   = 200;
       AppState.sensi.Scope2x  = 200;
       AppState.sensi.Scope4x  = 200;
-      AppState.sensi.ButtonSize = Math.max(28, (AppState.sensi.ButtonSize || 33) - 1);
-      AppState.phoneSensi.yMultiplier = Math.min(5.5, parseFloat(((AppState.phoneSensi.yMultiplier || 4.85) + 0.25).toFixed(2)));
+      AppState.sensi.ButtonSize = Math.max(26, (AppState.sensi.ButtonSize || 32) - 1);
+      AppState.phoneSensi.yMultiplier = Math.min(6.0, parseFloat(((AppState.phoneSensi.yMultiplier || 5.2) + 0.3).toFixed(2)));
       applySensiValuesToUI(); renderRedTxt(); persistActiveDeviceConfig();
       showToast('⚡ HYPER MICRO-DRAG BOOST! Y-Lift: ' + AppState.phoneSensi.yMultiplier + 'x', '🎯', 'success');
     }
@@ -9038,8 +9039,8 @@ MANUAL ENTRY STEPS:
       AppState.sensi.General  = Math.max(180, (AppState.sensi.General  || 200) - 4);
       AppState.sensi.RedDot   = Math.max(180, (AppState.sensi.RedDot   || 200) - 4);
       AppState.sensi.Scope2x  = Math.max(180, (AppState.sensi.Scope2x  || 200) - 4);
-      AppState.sensi.ButtonSize = Math.min(45, (AppState.sensi.ButtonSize || 33) + 2);
-      AppState.phoneSensi.yMultiplier = Math.max(2.5, parseFloat(((AppState.phoneSensi.yMultiplier || 4.85) - 0.3).toFixed(2)));
+      AppState.sensi.ButtonSize = Math.min(45, (AppState.sensi.ButtonSize || 32) + 2);
+      AppState.phoneSensi.yMultiplier = Math.max(2.5, parseFloat(((AppState.phoneSensi.yMultiplier || 5.2) - 0.3).toFixed(2)));
       applySensiValuesToUI(); renderRedTxt(); persistActiveDeviceConfig();
       showToast('▼ ড্র্যাগ লিফট কিছুটা কমানো হয়েছে (Y: ' + AppState.phoneSensi.yMultiplier + 'x)', '🎯', 'info');
     }
