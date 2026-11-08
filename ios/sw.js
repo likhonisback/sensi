@@ -1,5 +1,5 @@
 // SENSI PRO - High-Performance Offline Service Worker
-const CACHE_NAME = 'sensi-pro-v2';
+const CACHE_NAME = 'sensi-pro-v11';
 const STATIC_ASSETS = [
   './',
   './index.html',
@@ -42,7 +42,21 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Cache-first with background revalidation for local shell assets
+  // Network-first for navigation requests (HTML) to always load latest updates
+  if (event.request.mode === 'navigate' || event.request.destination === 'document') {
+    event.respondWith(
+      fetch(event.request).then((networkResponse) => {
+        if (networkResponse && networkResponse.status === 200) {
+          const resClone = networkResponse.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, resClone));
+        }
+        return networkResponse;
+      }).catch(() => caches.match('./index.html'))
+    );
+    return;
+  }
+
+  // Cache-first with background revalidation for static assets (images, icons)
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
       const fetchPromise = fetch(event.request).then((networkResponse) => {
@@ -52,9 +66,6 @@ self.addEventListener('fetch', (event) => {
         }
         return networkResponse;
       }).catch((err) => {
-        if (event.request.mode === 'navigate') {
-          return caches.match('./index.html');
-        }
         throw err;
       });
 
