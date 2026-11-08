@@ -1,0 +1,18 @@
+# Binaries and executables
+*.exe
+*.apk
+*.ipa
+*.zip
+*.7z
+*.pdb
+*.iobj
+*.ipdb
+android/build/
+build/
+.tmp/
+*.log
+Debug/
+Release/
+examples/**/Debug/
+examples/**/Release/
+examples/**/build/

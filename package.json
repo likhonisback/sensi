@@ -1,0 +1,36 @@
+{
+  "name": "sensi-pro-crossplatform",
+  "version": "2.0.0",
+  "description": "SENSI PRO - Cross-Platform Mobile Gaming Sensitivity & Optimization Companion",
+  "main": "index.html",
+  "scripts": {
+    "build": "powershell -ExecutionPolicy Bypass -Command \"Copy-Item index.html android/app/src/main/assets/index.html -Force; Copy-Item index.html ios/index.html -Force; Write-Host 'Assets synchronized successfully.'\"",
+    "build:android": "powershell.exe -ExecutionPolicy Bypass -File .\\build_android.ps1",
+    "build:ios": "powershell.exe -ExecutionPolicy Bypass -File .\\ios\\build_remote.ps1",
+    "cap:sync": "npx cap sync",
+    "cap:sync:android": "npx cap sync android",
+    "cap:sync:ios": "npx cap sync ios",
+    "cap:open:android": "npx cap open android",
+    "cap:open:ios": "npx cap open ios",
+    "test": "powershell.exe -ExecutionPolicy Bypass -File .\\test_app.ps1"
+  },
+  "dependencies": {
+    "@capacitor/core": "^6.0.0",
+    "@capacitor/android": "^6.0.0",
+    "@capacitor/ios": "^6.0.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^6.0.0"
+  },
+  "keywords": [
+    "sensi",
+    "gaming",
+    "sensitivity",
+    "cross-platform",
+    "capacitor",
+    "android",
+    "ios"
+  ],
+  "author": "SENSI PRO Team",
+  "license": "MIT"
+}

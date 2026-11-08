@@ -1,0 +1,42 @@
+name: Build Android SensiPro APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-android:
+    name: Build Genuine SensiPro.apk
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install Android Build-Tools & Platform
+        run: |
+          sdkmanager --install "build-tools;34.0.0" "platforms;android-34"
+
+      - name: Build Android APK
+        run: |
+          chmod +x android/build_apk.sh
+          ./android/build_apk.sh
+
+      - name: Upload SensiPro.apk Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: SensiPro-Android-APK
+          path: build/Android/SensiPro.apk
+          if-no-files-found: error

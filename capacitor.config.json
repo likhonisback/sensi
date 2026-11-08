@@ -1,0 +1,23 @@
+{
+  "appId": "com.sensipro.app",
+  "appName": "SENSI PRO",
+  "webDir": ".",
+  "bundledWebRuntime": false,
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "path": "android",
+    "allowMixedContent": true
+  },
+  "ios": {
+    "path": "ios",
+    "scheme": "SensiPanel"
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 1500,
+      "backgroundColor": "#0b0c10"
+    }
+  }
+}

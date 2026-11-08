@@ -1,0 +1,38 @@
+name: Build iOS SensiPanel IPA
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-ios:
+    name: Build Genuine SensiPanel.ipa
+    runs-on: macos-14
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Select Xcode Version
+        run: sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
+
+      - name: Synchronize Web Assets
+        run: |
+          mkdir -p ios build/iOS
+          cp index.html ios/index.html
+          if [ -f icon.png ]; then cp icon.png ios/icon.png; fi
+
+      - name: Build and Package SensiPanel.ipa
+        run: |
+          chmod +x ios/build_ipa.sh
+          ./ios/build_ipa.sh
+
+      - name: Upload SensiPanel.ipa Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: SensiPanel-iOS-IPA
+          path: build/iOS/SensiPanel.ipa
+          if-no-files-found: error
