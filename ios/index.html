@@ -3023,14 +3023,14 @@
       <div class="card-box" style="margin-top: 10px; border: 2px solid #ff2b45; background: rgba(255,43,69,0.07); border-radius: 12px; padding: 14px;">
         <div style="font-size: 12px; font-weight: 900; color: #ff2b45; margin-bottom: 8px; display:flex; align-items:center; gap:6px;">
           <span style="font-size:16px;">🎯</span>
-          <span style="letter-spacing:0.5px;">HEADSHOT LOCK ENGINE</span>
+          <span style="letter-spacing:0.5px;">HEADSHOT LOCK & LIGHT-DRAG ENGINE</span>
           <span id="headshotLockBadge" style="font-size:10px; padding:2px 8px; border-radius:20px; background:#ff2b45; color:#fff; margin-left:auto; font-weight:900; letter-spacing:1px;">OFF</span>
         </div>
         <p style="font-size:11px; color:#94a3b8; margin-bottom:12px; line-height:1.5;">
-          Drag upward on enemy chest → bullets auto-rise to head level. Maximizes all headshot-bias parameters instantly.
+          হালকা ড্র্যাগেই যাতে সরাসরি এনিমির মাথায় লক হয়ে যায়, তার জন্য সেনসিটিভিটি, DPI, এবং Y-অ্যাক্সিস বুস্ট মোড।
         </p>
         <label style="display:flex; width:100%; justify-content:space-between; align-items:center; padding:10px 12px; background:rgba(255,43,69,0.08); border-radius:8px; cursor:pointer; border:1px solid rgba(255,43,69,0.25);">
-          <span style="font-size:12.5px; color:#fff; font-weight:800;">🔒 Lock Drag to Head Level</span>
+          <span style="font-size:12.5px; color:#fff; font-weight:800;">🔒 Ultra Light Drag (One-Tap Head)</span>
           <div style="position:relative; width:46px; height:26px; flex-shrink:0;">
             <input type="checkbox" id="toggleHeadshotLock" onchange="activateHeadshotLockEngine(this.checked)" style="opacity:0; width:0; height:0; position:absolute;">
             <div id="headshotLockTrack" onclick="document.getElementById('toggleHeadshotLock').click()" style="position:absolute; inset:0; border-radius:13px; background:#2a2f3e; cursor:pointer; transition:background 0.3s;"></div>
@@ -3038,20 +3038,21 @@
           </div>
         </label>
         <div id="headshotLockGuide" style="display:none; margin-top:12px; background:#0d1018; border-radius:10px; padding:12px; font-size:11px; color:#a4adbe; line-height:1.8;">
-          <div style="margin-bottom:4px;">✅ <b style="color:#00e676;">General → 200</b> — maximum drag velocity</div>
-          <div style="margin-bottom:4px;">✅ <b style="color:#00e676;">Red Dot → 196</b> — headshot rise lock</div>
-          <div style="margin-bottom:4px;">✅ <b style="color:#00e676;">Scope 2x → 188 / 4x → 182</b> — mid-range lock</div>
-          <div style="margin-bottom:4px;">✅ <b style="color:#00e676;">DPI → 480</b> — optimal drag grip zone</div>
-          <div style="margin-bottom:4px;">✅ <b style="color:#00e676;">Button Size → 42%</b> — maximum vertical runway</div>
-          <div style="margin-bottom:4px;">✅ <b style="color:#00e676;">Y-Multiplier → 2.4</b> — vertical aim bias active</div>
-          <div style="margin-top:10px; padding:10px; background:rgba(255,43,69,0.1); border-radius:8px; border-left:3px solid #ff2b45; line-height:1.7;">
-            <b style="color:#ff2b45; font-size:12px;">🔥 DRAG TECHNIQUE:</b><br>
-            Place fire button at <b style="color:#fff;">BOTTOM</b> of screen.<br>
-            Drag finger <b style="color:#fff;">STRAIGHT UP</b> fast — aim starts at chest, the high sensitivity carries it to <b style="color:#ff2b45;">HEAD automatically.</b>
+          <div style="margin-bottom:4px;">✅ <b style="color:#00e676;">General → 200</b> — সর্বোচ্চ ড্র্যাগ স্পিড (হালকা ছোঁয়াতেই হেড)</div>
+          <div style="margin-bottom:4px;">✅ <b style="color:#00e676;">Red Dot → 200</b> — নো-রিকোয়েল হেডশট স্ন্যাপ</div>
+          <div style="margin-bottom:4px;">✅ <b style="color:#00e676;">Scope 2x → 195 / 4x → 190</b> — লং এবং মিড রেঞ্জ হেড লক</div>
+          <div style="margin-bottom:4px;">✅ <b style="color:#00e676;">DPI → 520 (Competitive Fast)</b> — হালকা ড্র্যাগেই দ্রুত হেড লেভেলে উঠবে</div>
+          <div style="margin-bottom:4px;">✅ <b style="color:#00e676;">Button Size → 40%</b> — বেশি ড্র্যাগ রানওয়ে (বুকের বদলে সরাসরি মাথা)</div>
+          <div style="margin-bottom:4px;">✅ <b style="color:#00e676;">Vertical Lift (Y-Multi) → 2.85x</b> — হালকা ড্র্যাগ বুস্টার অ্যাক্টিভ</div>
+          <div style="margin-top:10px; padding:10px; background:rgba(255,43,69,0.12); border-radius:8px; border-left:3px solid #ff2b45; line-height:1.7;">
+            <b style="color:#ff2b45; font-size:12px;">🔥 হালকা ড্র্যাগে হেড লাগানোর সিক্রেট ট্রিক:</b><br>
+            ১. ফায়ার বাটন স্ক্রিনের <b style="color:#fff;">একদম নিচে</b> রাখবেন এবং সাইজ <b style="color:#fff;">40%</b> রাখবেন।<br>
+            ২. এনিমিকে লক্ষ্য করে বেশি জোরে টানার দরকার নেই — <b style="color:#00e676;">খুব হালকাভাবে দ্রুত সোজা ওপরে (Straight Upward) স্লাইড করুন।</b><br>
+            ৩. জেনারেল ২০০ আর Y-Multi 2.85 এর কারণে হালকা ছোঁয়াতেই গুলি সোজা মাথায় গিয়ে লক হবে।
           </div>
           <div style="margin-top:8px; display:flex; gap:6px;">
-            <button onclick="nudgeHeadshotUp()" style="flex:1; padding:8px; font-size:10px; font-weight:800; background:rgba(0,230,118,0.1); border:1px solid #00e676; color:#00e676; border-radius:6px; cursor:pointer;">▲ MORE HEAD BIAS</button>
-            <button onclick="nudgeHeadshotDown()" style="flex:1; padding:8px; font-size:10px; font-weight:800; background:rgba(255,43,69,0.1); border:1px solid #ff2b45; color:#ff2b45; border-radius:6px; cursor:pointer;">▼ LESS BIAS</button>
+            <button onclick="nudgeHeadshotUp()" style="flex:1; padding:8px; font-size:10px; font-weight:800; background:rgba(0,230,118,0.1); border:1px solid #00e676; color:#00e676; border-radius:6px; cursor:pointer;">▲ আরও হালকা ড্র্যাগ (MAX LIFT)</button>
+            <button onclick="nudgeHeadshotDown()" style="flex:1; padding:8px; font-size:10px; font-weight:800; background:rgba(255,43,69,0.1); border:1px solid #ff2b45; color:#ff2b45; border-radius:6px; cursor:pointer;">▼ নরমাল ব্যালেন্স</button>
           </div>
         </div>
       </div>
@@ -8963,26 +8964,27 @@ MANUAL ENTRY STEPS:
       const track = document.getElementById('headshotLockTrack');
       const thumb = document.getElementById('headshotLockThumb');
       if (state) {
-        // Maximum headshot-bias values
+        // Ultra-Light Drag Maximum headshot-bias values
         AppState.sensi.General    = 200;
-        AppState.sensi.RedDot     = 196;
-        AppState.sensi.Scope2x    = 188;
-        AppState.sensi.Scope4x    = 182;
-        AppState.sensi.Sniper     = 92;
-        AppState.sensi.FreeLook   = 160;
-        AppState.sensi.ButtonSize = 42;
-        AppState.sensi.Dpi        = AppState.selectedOS === 'iOS' ? 0 : 480;
+        AppState.sensi.RedDot     = 200;
+        AppState.sensi.Scope2x    = 195;
+        AppState.sensi.Scope4x    = 190;
+        AppState.sensi.Sniper     = 95;
+        AppState.sensi.FreeLook   = 165;
+        AppState.sensi.ButtonSize = 40;
+        AppState.sensi.Dpi        = AppState.selectedOS === 'iOS' ? 0 : 520;
         if (!AppState.recoilControl) AppState.recoilControl = {};
         AppState.recoilControl.enabled = true;
-        AppState.recoilControl.profile = 'balanced';
-        AppState.recoilControl.damping = 85;
-        AppState.recoilControl.jitterFilter = 88;
-        AppState.recoilControl.overshootLimit = 92;
+        AppState.recoilControl.profile = 'smg';
+        AppState.recoilControl.damping = 90;
+        AppState.recoilControl.jitterFilter = 92;
+        AppState.recoilControl.overshootLimit = 95;
         AppState.mHard.enabled = true;
-        AppState.mHard.aggression = 92;
-        AppState.mHard.stabilization = 88;
-        AppState.phoneSensi.yMultiplier = 2.4;
-        AppState.phoneSensi.smoothing = 72;
+        AppState.mHard.aggression = 96;
+        AppState.mHard.stabilization = 92;
+        AppState.phoneSensi.yMultiplier = 2.85;
+        AppState.phoneSensi.xMultiplier = 1.35;
+        AppState.phoneSensi.smoothing = 78;
         AppState.headshotLockActive = true;
         setProfileDirty && setProfileDirty(true);
         applySensiValuesToUI();
@@ -8992,7 +8994,7 @@ MANUAL ENTRY STEPS:
         if (guide) guide.style.display = 'block';
         if (track) track.style.background = '#00e676';
         if (thumb) { thumb.style.left = '23px'; thumb.style.background = '#fff'; }
-        showToast('🎯 HEADSHOT LOCK ENGAGED! Drag UP = Automatic Headshot!', '🔥', 'success');
+        showToast('🎯 ULTRA LIGHT DRAG ENGAGED! হালকা ড্র্যাগেই হেড লাগবে!', '🔥', 'success');
       } else {
         AppState.headshotLockActive = false;
         if (badge) { badge.innerText = 'OFF'; badge.style.background = '#ff2b45'; badge.style.color = '#fff'; }
@@ -9004,23 +9006,23 @@ MANUAL ENTRY STEPS:
     }
 
     function nudgeHeadshotUp() {
-      AppState.sensi.General  = Math.min(200, (AppState.sensi.General  || 195) + 2);
-      AppState.sensi.RedDot   = Math.min(200, (AppState.sensi.RedDot   || 186) + 2);
-      AppState.sensi.Scope2x  = Math.min(200, (AppState.sensi.Scope2x  || 176) + 2);
-      AppState.sensi.ButtonSize = Math.max(38, (AppState.sensi.ButtonSize || 42) - 1);
-      AppState.phoneSensi.yMultiplier = Math.min(3.0, (AppState.phoneSensi.yMultiplier || 2.4) + 0.1);
+      AppState.sensi.General  = 200;
+      AppState.sensi.RedDot   = 200;
+      AppState.sensi.Scope2x  = Math.min(200, (AppState.sensi.Scope2x  || 195) + 2);
+      AppState.sensi.ButtonSize = Math.max(36, (AppState.sensi.ButtonSize || 40) - 1);
+      AppState.phoneSensi.yMultiplier = Math.min(3.5, (AppState.phoneSensi.yMultiplier || 2.85) + 0.15);
       applySensiValuesToUI(); renderRedTxt(); persistActiveDeviceConfig();
-      showToast('▲ Headshot bias increased — drag rises faster!', '🎯', 'success');
+      showToast('▲ আরও হালকা ড্র্যাগ বুস্ট করা হয়েছে!', '🎯', 'success');
     }
 
     function nudgeHeadshotDown() {
-      AppState.sensi.General  = Math.max(160, (AppState.sensi.General  || 200) - 2);
-      AppState.sensi.RedDot   = Math.max(160, (AppState.sensi.RedDot   || 196) - 2);
-      AppState.sensi.Scope2x  = Math.max(155, (AppState.sensi.Scope2x  || 188) - 2);
-      AppState.sensi.ButtonSize = Math.min(50, (AppState.sensi.ButtonSize || 42) + 1);
-      AppState.phoneSensi.yMultiplier = Math.max(1.0, (AppState.phoneSensi.yMultiplier || 2.4) - 0.1);
+      AppState.sensi.General  = Math.max(170, (AppState.sensi.General  || 200) - 4);
+      AppState.sensi.RedDot   = Math.max(170, (AppState.sensi.RedDot   || 200) - 4);
+      AppState.sensi.Scope2x  = Math.max(160, (AppState.sensi.Scope2x  || 195) - 4);
+      AppState.sensi.ButtonSize = Math.min(50, (AppState.sensi.ButtonSize || 40) + 2);
+      AppState.phoneSensi.yMultiplier = Math.max(1.5, (AppState.phoneSensi.yMultiplier || 2.85) - 0.2);
       applySensiValuesToUI(); renderRedTxt(); persistActiveDeviceConfig();
-      showToast('▼ Headshot bias reduced — more control', '🎯', 'info');
+      showToast('▼ ড্র্যাগ লিফট কিছুটা কমানো হয়েছে', '🎯', 'info');
     }
 
     function toggleThemePhone(state) {
