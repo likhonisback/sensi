@@ -2852,8 +2852,8 @@
 
       <!-- TACTICAL PRESETS (Requirement 6: Real Presets, No Hashtag Placeholders) -->
       <div class="s2-preset-tabs">
-        <button class="s2-preset-tab active" id="presetBtn1" onclick="selectPreset('Balanced', this)">Balanced</button>
-        <button class="s2-preset-tab" id="presetBtn2" onclick="selectPreset('DragHeadshot', this)">Drag Headshot</button>
+        <button class="s2-preset-tab" id="presetBtn1" onclick="selectPreset('Balanced', this)">Balanced</button>
+        <button class="s2-preset-tab active" id="presetBtn2" onclick="selectPreset('DragHeadshot', this)">🎯 Drag Headshot</button>
         <button class="s2-preset-tab" id="presetBtn3" onclick="selectPreset('PrecisionAim', this)">Precision Aim</button>
         <button class="s2-preset-tab" id="presetBtn4" onclick="selectPreset('FastFlick', this)">Fast Flick (Shotgun)</button>
         <button class="s2-preset-tab" id="presetBtn5" onclick="selectPreset('LongRange', this)">Long Range Sniper</button>
@@ -3020,24 +3020,24 @@
       </div>
 
       <!-- HEADSHOT LOCK ENGINE -->
-      <div class="card-box" style="margin-top: 10px; border: 2px solid #ff2b45; background: rgba(255,43,69,0.07); border-radius: 12px; padding: 14px;">
-        <div style="font-size: 12px; font-weight: 900; color: #ff2b45; margin-bottom: 8px; display:flex; align-items:center; gap:6px;">
+      <div class="card-box" style="margin-top: 10px; border: 2px solid #00e676; background: rgba(0,230,118,0.08); border-radius: 12px; padding: 14px;">
+        <div style="font-size: 12px; font-weight: 900; color: #00e676; margin-bottom: 8px; display:flex; align-items:center; gap:6px;">
           <span style="font-size:16px;">🎯</span>
           <span style="letter-spacing:0.5px;">HEADSHOT LOCK & LIGHT-DRAG ENGINE</span>
-          <span id="headshotLockBadge" style="font-size:10px; padding:2px 8px; border-radius:20px; background:#ff2b45; color:#fff; margin-left:auto; font-weight:900; letter-spacing:1px;">OFF</span>
+          <span id="headshotLockBadge" style="font-size:10px; padding:2px 8px; border-radius:20px; background:#00e676; color:#000; margin-left:auto; font-weight:900; letter-spacing:1px;">HYPER LOCKED</span>
         </div>
         <p style="font-size:11px; color:#94a3b8; margin-bottom:12px; line-height:1.5;">
           হালকা ড্র্যাগেই যাতে সরাসরি এনিমির মাথায় লক হয়ে যায়, তার জন্য সেনসিটিভিটি, DPI, এবং Y-অ্যাক্সিস বুস্ট মোড।
         </p>
-        <label style="display:flex; width:100%; justify-content:space-between; align-items:center; padding:10px 12px; background:rgba(255,43,69,0.08); border-radius:8px; cursor:pointer; border:1px solid rgba(255,43,69,0.25);">
+        <label style="display:flex; width:100%; justify-content:space-between; align-items:center; padding:10px 12px; background:rgba(0,230,118,0.08); border-radius:8px; cursor:pointer; border:1px solid rgba(0,230,118,0.35);">
           <span style="font-size:12.5px; color:#fff; font-weight:800;">🔒 Ultra Light Drag (One-Tap Head)</span>
           <div style="position:relative; width:46px; height:26px; flex-shrink:0;">
-            <input type="checkbox" id="toggleHeadshotLock" onchange="activateHeadshotLockEngine(this.checked)" style="opacity:0; width:0; height:0; position:absolute;">
-            <div id="headshotLockTrack" onclick="document.getElementById('toggleHeadshotLock').click()" style="position:absolute; inset:0; border-radius:13px; background:#2a2f3e; cursor:pointer; transition:background 0.3s;"></div>
-            <div id="headshotLockThumb" onclick="document.getElementById('toggleHeadshotLock').click()" style="position:absolute; top:3px; left:3px; width:20px; height:20px; border-radius:50%; background:#666; cursor:pointer; transition:all 0.3s; box-shadow:0 2px 6px rgba(0,0,0,0.4);"></div>
+            <input type="checkbox" id="toggleHeadshotLock" checked onchange="activateHeadshotLockEngine(this.checked)" style="opacity:0; width:0; height:0; position:absolute;">
+            <div id="headshotLockTrack" onclick="document.getElementById('toggleHeadshotLock').click()" style="position:absolute; inset:0; border-radius:13px; background:#00e676; cursor:pointer; transition:background 0.3s;"></div>
+            <div id="headshotLockThumb" onclick="document.getElementById('toggleHeadshotLock').click()" style="position:absolute; top:3px; left:23px; width:20px; height:20px; border-radius:50%; background:#fff; cursor:pointer; transition:all 0.3s; box-shadow:0 2px 6px rgba(0,0,0,0.4);"></div>
           </div>
         </label>
-        <div id="headshotLockGuide" style="display:none; margin-top:12px; background:#0d1018; border-radius:10px; padding:12px; font-size:11px; color:#a4adbe; line-height:1.8;">
+        <div id="headshotLockGuide" style="display:block; margin-top:12px; background:#0d1018; border-radius:10px; padding:12px; font-size:11px; color:#a4adbe; line-height:1.8;">
           <div style="margin-bottom:4px;">⚡ <b style="color:#00e676;">General & Red Dot → 200 (MAX)</b> — তাৎক্ষণিক জিরো-ডিলে রেসপন্স</div>
           <div style="margin-bottom:4px;">⚡ <b style="color:#00e676;">Scope 2x & 4x → 200 (MAX)</b> — মিড ও লং রেঞ্জে অল-রেড ম্যাগনেট</div>
           <div style="margin-bottom:4px;">⚡ <b style="color:#00e676;">Vertical Lift (Y-Multi) → 4.85x</b> — মাত্র ৩-৫ মিলিমিটার মাইক্রো-ড্র্যাগে ইনস্ট্যান্ট হেডশট</div>
@@ -5631,33 +5631,35 @@
       detectedRefreshRate: 60,
       detectedDpi: 0,
       detectedOSVersion: '',
-      activePreset: 'Balanced',
-      profileStatus: 'verified', // 'verified' | 'estimated' | 'calibrated'
-      profileSource: 'OB44 Benchmark',
+      activePreset: 'DragHeadshot',
+      profileStatus: 'calibrated',
+      profileSource: '100% Light-Drag Headshot Engine',
       deviceSpecs: '',
       savedDeviceProfiles: {},
       customizedProfiles: {},
       previousSettings: null,
       sensi: {
-        General: 195,
-        RedDot: 186,
-        Scope2x: 176,
-        Scope4x: 168,
-        Sniper: 88,
-        FreeLook: 155,
-        ButtonSize: 44,
-        Dpi: 0
+        General: 200,
+        RedDot: 200,
+        Scope2x: 200,
+        Scope4x: 200,
+        Sniper: 100,
+        FreeLook: 200,
+        ButtonSize: 33,
+        Dpi: 600
       },
+      headshotLockActive: true,
       phoneSensi: {
-        enabled: false, // Default OFF per Requirement 11
-        xMultiplier: 1.75,
-        yMultiplier: 2.10,
-        smoothing: 80
+        enabled: true,
+        xMultiplier: 1.85,
+        yMultiplier: 4.85,
+        smoothing: 96,
+        microDragAssist: true
       },
       iphoneSensi: {
-        enabled: false, // Default OFF per Requirement 9
-        cursorSpeed: 115,
-        touchTracking: 90
+        enabled: true,
+        cursorSpeed: 120,
+        touchTracking: 100
       },
       themePhone: {
         enabled: false, // Default OFF per Requirement 10
@@ -7040,7 +7042,9 @@
       }
 
       setDevice(model);
-      showToast(`Generated optimal calibration for ${AppState.deviceModel}!`);
+      selectPreset('DragHeadshot');
+      activateHeadshotLockEngine(true);
+      showToast(`🎯 Auto Light-Drag Headshot Active for ${AppState.deviceModel}!`, '🔥', 'success');
       switchView(2);
     }
 
@@ -11410,6 +11414,13 @@ MANUAL ENTRY STEPS:
       // 8. Drag Aim & Headshot Calibration & Practice Results Log restoration
       if (typeof initDragAimCalibration === 'function') {
         initDragAimCalibration();
+      }
+
+      // 9. Auto-sync Headshot Lock Engine state
+      if (AppState.activePreset === 'DragHeadshot' || AppState.headshotLockActive) {
+        const toggle = document.getElementById('toggleHeadshotLock');
+        if (toggle) toggle.checked = true;
+        activateHeadshotLockEngine(true);
       }
     }
 
