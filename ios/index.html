@@ -2851,7 +2851,7 @@
       </div>
 
       <!-- TACTICAL PRESETS (Requirement 6: Real Presets, No Hashtag Placeholders) -->
-      <div class="s2-preset-tabs">
+      <div class="s2-preset-tabs" style="display: none !important;">
         <button class="s2-preset-tab active" id="presetBtn1" onclick="selectPreset('Balanced', this)">Balanced</button>
         <button class="s2-preset-tab" id="presetBtn2" onclick="selectPreset('DragHeadshot', this)">Drag Headshot</button>
         <button class="s2-preset-tab" id="presetBtn3" onclick="selectPreset('PrecisionAim', this)">Precision Aim</button>
@@ -3007,7 +3007,7 @@
         </button>
       </div>
 
-      <div style="display: flex; gap: 6px; margin-top: 8px;">
+      <div style="display: none !important; gap: 6px; margin-top: 8px;">
         <button class="btn-fire-primary" style="flex: 1; padding: 10px; font-size: 11px; background: #151926; border: 1px solid #242e42;" onclick="confirmResetToDefault()">
           <span>🔄</span><span>Reset Benchmark</span>
         </button>
@@ -3020,7 +3020,7 @@
       </div>
 
       <!-- DPI CONFIGURATION & SAFE LIMITS (Requirement 6) -->
-      <div class="card-box" id="dpiSafetyGuide" style="margin-top: 12px;">
+      <div class="card-box" id="dpiSafetyGuide" style="display: none !important; margin-top: 12px;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
           <div class="step-section-title" style="margin-bottom: 0;" data-i18n="dpi_title">DPI CONFIGURATION & SAFE LIMITS</div>
           <span id="dpiSafeBadge" style="font-size: 10px; font-weight: 800; padding: 2px 6px; border-radius: 4px; background: rgba(16,185,129,0.15); color: #10b981; border: 1px solid #10b981;">SAFE</span>
@@ -3059,7 +3059,7 @@
       </div>
 
       <!-- RED.TXT GENERATION & EXPORT (Requirement 6 & 14) -->
-      <div class="card-box">
+      <div class="card-box" style="display: none !important;">
         <div class="step-section-title" data-i18n="red_txt_title">GENERATED RED.TXT CONFIG</div>
         <div class="red-txt-box" id="redTxtPreview"></div>
         <div style="display: flex; gap: 8px; margin-top: 10px;">
@@ -3645,7 +3645,7 @@
       </div>
 
       <!-- SECTION 2: TRAINING GROUND TEST SETUP -->
-      <div class="card-box">
+      <div class="card-box" style="display: none !important;">
         <div class="drag-calib-step-badge">2. TRAINING GROUND TEST SETUP</div>
         <div style="font-size: 11px; color: #94a3b8; line-height: 1.4; margin-bottom: 6px;">
           Select your training scenario in Free Fire practice range. Fire 5–10 drag shots at target dummies:
@@ -3690,7 +3690,7 @@
       </div>
 
       <!-- SECTION 3: EMPIRICAL DRAG OUTCOME DIAGNOSTICS -->
-      <div class="card-box">
+      <div class="card-box" style="display: none !important;">
         <div class="drag-calib-step-badge">3. EMPIRICAL DRAG OUTCOME</div>
         <div style="font-size: 11px; color: #94a3b8; line-height: 1.4;">
           Observe your bullet hits on the practice dummy and tap the actual drag behavior below for controlled scientific calibration:
@@ -4385,7 +4385,7 @@
       </div>
 
       <!-- CARD 3: HARDWARE TELEMETRY & DRAG METRICS -->
-      <div class="card-box" style="margin-bottom: 12px; background: #0f121b; border: 1px solid #1f2538;">
+      <div class="card-box" style="display: none !important; margin-bottom: 12px; background: #0f121b; border: 1px solid #1f2538;">
         <div style="font-size: 11px; font-weight: 800; color: #00e5ff; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
           <span>📊</span><span data-i18n="recoil_metrics_title">HARDWARE TELEMETRY & RECOIL METRICS</span>
         </div>
@@ -4410,7 +4410,7 @@
       </div>
 
       <!-- CARD 4: LEGITIMATE IN-GAME RECOIL GUIDANCE -->
-      <div class="card-box" style="margin-bottom: 12px; border-left: 3px solid #00e5ff; background: rgba(0,229,255,0.03);">
+      <div class="card-box" style="display: none !important; margin-bottom: 12px; border-left: 3px solid #00e5ff; background: rgba(0,229,255,0.03);">
         <div style="font-size: 11px; font-weight: 800; color: #fff; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
           <span>📖</span><span data-i18n="recoil_guide_title">LEGITIMATE RECOIL & AIM MANAGEMENT GUIDE</span>
         </div>
@@ -4423,7 +4423,7 @@
       </div>
 
       <!-- CARD 5: RECOIL TRANSPARENCY & STABILITY DISCLAIMER -->
-      <div class="card-box" style="border-left: 3px solid #ff3b5c; background: rgba(255,59,92,0.05); padding: 14px 16px;">
+      <div class="card-box" style="display: none !important; border-left: 3px solid #ff3b5c; background: rgba(255,59,92,0.05); padding: 14px 16px;">
         <div style="font-size: 12px; font-weight: 800; color: #fff; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
           <span>⚡</span><span>LEGITIMATE RECOIL & TOUCH STABILIZATION</span>
         </div>
