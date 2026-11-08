@@ -1046,25 +1046,61 @@
  }
  .slider-toggle:before {
  position: absolute;
- content: "";
+ content: "\2715";
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 10px;
+ font-weight: 900;
+ color: #ff3355;
  height: 18px; width: 18px;
  left: 2.5px; bottom: 2.5px;
  background-color: #ffffff;
  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
- transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), width 0.2s ease;
+ transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), width 0.2s ease, color 0.2s ease;
  border-radius: 50%;
  will-change: transform;
+ z-index: 2;
  }
  .switch-toggle:active .slider-toggle:before, .slider-toggle:active:before {
  width: 22px;
  }
+ .slider-toggle:after {
+ content: "\2715";
+ position: absolute;
+ right: 6px;
+ top: 50%;
+ transform: translateY(-50%);
+ font-size: 11px;
+ font-weight: 900;
+ color: #ff3355;
+ line-height: 1;
+ pointer-events: none;
+ opacity: 0.85;
+ transition: opacity 0.2s ease;
+ }
  input:checked + .slider-toggle {
- background-color: var(--neon-red);
- border-color: #ff4760;
- box-shadow: 0 0 14px rgba(255, 43, 69, 0.45);
+ background-color: rgba(0, 230, 118, 0.22);
+ border-color: #00e676;
+ box-shadow: 0 0 14px rgba(0, 230, 118, 0.45);
  }
  input:checked + .slider-toggle:before {
+ content: "\2713";
+ color: #00e676;
  transform: translateX(20px);
+ }
+ input:checked + .slider-toggle:after {
+ content: "\2713";
+ left: 6px;
+ right: auto;
+ color: #00e676;
+ font-size: 12px;
+ opacity: 1;
+ }
+ .s3-feature-toggle-card:has(input:checked) {
+ border-color: #00e676 !important;
+ background: rgba(0, 230, 118, 0.06) !important;
+ box-shadow: 0 0 14px rgba(0, 230, 118, 0.15) !important;
  }
 
  /* ==========================================================================
@@ -3036,7 +3072,7 @@
  <div style="position:relative; width:46px; height:26px; flex-shrink:0;">
  <input type="checkbox" id="toggleHeadshotLock" checked onchange="activateHeadshotLockEngine(this.checked)" style="opacity:0; width:0; height:0; position:absolute;">
  <div id="headshotLockTrack" onclick="document.getElementById('toggleHeadshotLock').click()" style="position:absolute; inset:0; border-radius:13px; background:#00e676; cursor:pointer; transition:background 0.3s;"></div>
- <div id="headshotLockThumb" onclick="document.getElementById('toggleHeadshotLock').click()" style="position:absolute; top:3px; left:23px; width:20px; height:20px; border-radius:50%; background:#fff; cursor:pointer; transition:all 0.3s; box-shadow:0 2px 6px rgba(0,0,0,0.4);"></div>
+ <div id="headshotLockThumb" onclick="document.getElementById('toggleHeadshotLock').click()" style="position:absolute; top:3px; left:23px; width:20px; height:20px; border-radius:50%; background:#fff; cursor:pointer; transition:all 0.3s; box-shadow:0 2px 6px rgba(0,0,0,0.4); display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:900; color:#00e676;">âœ“</div>
  </div>
  </label>
  <div id="headshotLockGuide" style="display:block; margin-top:12px; background:#0d1018; border-radius:10px; padding:12px; font-size:11px; color:#a4adbe; line-height:1.8;">
@@ -3155,7 +3191,7 @@
  <span data-i18n="toggle_sensi_phone">SENSITIVITY PHONE</span>
  </div>
  <label class="switch-toggle">
- <input type="checkbox" id="toggleSensiPhone" onchange="toggleSensiPhone(this.checked)">
+ <input type="checkbox" id="toggleSensiPhone" onchange="toggleSensiPhone(this.checked)"><span class="slider-toggle"></span>
  
  </label>
  </div>
@@ -3166,7 +3202,7 @@
  <span data-i18n="toggle_iphone_sensi">IPHONE SENSITIVITY</span>
  </div>
  <label class="switch-toggle">
- <input type="checkbox" id="toggleIphoneSensi" onchange="toggleIphoneSensi(this.checked)">
+ <input type="checkbox" id="toggleIphoneSensi" onchange="toggleIphoneSensi(this.checked)"><span class="slider-toggle"></span>
  
  </label>
  </div>
@@ -3177,7 +3213,7 @@
  <span data-i18n="toggle_theme_phone">THEME PHONE</span>
  </div>
  <label class="switch-toggle">
- <input type="checkbox" id="toggleThemePhone" onchange="toggleThemePhone(this.checked)">
+ <input type="checkbox" id="toggleThemePhone" onchange="toggleThemePhone(this.checked)"><span class="slider-toggle"></span>
  
  </label>
  </div>
@@ -3188,7 +3224,7 @@
  <span data-i18n="toggle_m_hard">M HARD OPTIMIZATION</span>
  </div>
  <label class="switch-toggle">
- <input type="checkbox" id="toggleMHard" onchange="toggleMHard(this.checked)">
+ <input type="checkbox" id="toggleMHard" onchange="toggleMHard(this.checked)"><span class="slider-toggle"></span>
  
  </label>
  </div>
@@ -3199,7 +3235,7 @@
  <span data-i18n="toggle_crosshair_aim">CROSSHAIR AIM</span>
  </div>
  <label class="switch-toggle">
- <input type="checkbox" id="toggleCrosshairAim" onchange="toggleCrosshairAim(this.checked)">
+ <input type="checkbox" id="toggleCrosshairAim" onchange="toggleCrosshairAim(this.checked)"><span class="slider-toggle"></span>
  
  </label>
  </div>
@@ -3210,7 +3246,7 @@
  <span><span data-i18n="toggle_ping_phone">PING PHONE</span> <span id="pingReadout" style="color: var(--neon-green); font-size: 11px; margin-left: 6px;">(24ms)</span></span>
  </div>
  <label class="switch-toggle">
- <input type="checkbox" id="togglePingPhone" onchange="togglePingPhone(this.checked)">
+ <input type="checkbox" id="togglePingPhone" onchange="togglePingPhone(this.checked)"><span class="slider-toggle"></span>
  
  </label>
  </div>
@@ -3472,7 +3508,7 @@
  <div style="display: flex; align-items: center; gap: 8px;">
  <span id="macroStatusBadge" class="aimhud-badge off">MACRO: OFF</span>
  <label class="toggle-switch-compact">
- <input type="checkbox" id="toggleMacroGuides" onchange="toggleMacroLayout(this.checked)">
+ <input type="checkbox" id="toggleMacroGuides" onchange="toggleMacroLayout(this.checked)"><span class="slider-toggle-compact"></span>
  
  </label>
  </div>
@@ -4204,7 +4240,7 @@
  <div class="settings-label-desc">Toggle ON to apply hardware-tuned sensitivity & counter-drag damping.</div>
  </div>
  <label class="switch-toggle">
- <input type="checkbox" id="regeditMasterToggle" checked onchange="toggleRegedit(this.checked)">
+ <input type="checkbox" id="regeditMasterToggle" checked onchange="toggleRegedit(this.checked)"><span class="slider-toggle"></span>
  
  </label>
  </div>
@@ -4348,7 +4384,7 @@
  <div class="settings-label-desc" data-i18n="recoil_master_desc">Default: OFF. Enable for active counter-drag dampening.</div>
  </div>
  <label class="switch-toggle">
- <input type="checkbox" id="recoilControlActiveToggle" onchange="toggleRecoilControl(this.checked)">
+ <input type="checkbox" id="recoilControlActiveToggle" onchange="toggleRecoilControl(this.checked)"><span class="slider-toggle"></span>
  
  </label>
  </div>
@@ -9118,14 +9154,14 @@ MANUAL ENTRY STEPS:
  if (badge) { badge.innerText = '10,000,000,000X GOD-LOCK'; badge.style.background = '#00e676'; badge.style.color = '#000'; }
  if (guide) guide.style.display = 'block';
  if (track) track.style.background = '#00e676';
- if (thumb) { thumb.style.left = '23px'; thumb.style.background = '#fff'; }
+ if (thumb) { thumb.style.left = '23px'; thumb.style.background = '#fff'; thumb.innerText = "âœ“"; thumb.style.color = "#00e676"; thumb.style.display = "flex"; thumb.style.alignItems = "center"; thumb.style.justifyContent = "center"; thumb.style.fontSize = "11px"; thumb.style.fontWeight = "900"; }
  showToast(' 10,000,000,000X GOD-MODE ACTIVATED! 0.5mm Tap-Lock Active!', '', 'success');
  } else {
  AppState.headshotLockActive = false;
  if (badge) { badge.innerText = 'OFF'; badge.style.background = '#ff2b45'; badge.style.color = '#fff'; }
  if (guide) guide.style.display = 'none';
  if (track) track.style.background = '#2a2f3e';
- if (thumb) { thumb.style.left = '3px'; thumb.style.background = '#666'; }
+ if (thumb) { thumb.style.left = '3px'; thumb.style.background = '#fff'; thumb.innerText = "âœ•"; thumb.style.color = "#ff2b45"; thumb.style.display = "flex"; thumb.style.alignItems = "center"; thumb.style.justifyContent = "center"; thumb.style.fontSize = "11px"; thumb.style.fontWeight = "900"; }
  showToast('Headshot Lock Disabled', '', 'info');
  }
  }
