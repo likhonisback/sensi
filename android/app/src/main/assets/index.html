@@ -8892,6 +8892,7 @@ MANUAL ENTRY STEPS:
     // =========================================================================
     function toggleSensiPhone(state) {
       AppState.phoneSensi.enabled = state;
+      persistActiveDeviceConfig();
       applySensiValuesToUI();
       renderRedTxt();
       showToast(state ? 'Phone Sensi Enabled' : 'Phone Sensi Disabled', state ? '⚡' : '⏹️', state ? 'success' : 'info');
@@ -8900,6 +8901,7 @@ MANUAL ENTRY STEPS:
 
     function toggleIphoneSensi(state) {
       AppState.iphoneSensi.enabled = state;
+      persistActiveDeviceConfig();
       applySensiValuesToUI();
       renderRedTxt();
       showToast(state ? 'iPhone Sensi Mode Activated' : 'iPhone Sensi Mode Deactivated', state ? '🍏' : '⏹️', state ? 'success' : 'info');
