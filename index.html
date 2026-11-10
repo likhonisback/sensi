@@ -7179,42 +7179,75 @@
  // =========================================================================
  // 5. RECOMMENDED SENSITIVITY CALCULATION (Requirement 5 & Isolated Storage)
  // =========================================================================
- function applyPresetModifier(presetName) {
-  if (!presetName || presetName === 'Balanced') return;
+  function applyPresetModifier(presetName) {
+    if (!presetName) presetName = 'Balanced';
+    const cleanDev = AppState.deviceModel || 'iPhone 11';
+    const base = getDeviceSensitivity(cleanDev);
 
-  const base = getDeviceSensitivity(AppState.deviceModel);
-  if (presetName === 'DragHeadshot') {
-    AppState.sensi.General = Math.min(200, Math.round(base.General * 1.05));
-    AppState.sensi.RedDot = Math.min(200, Math.round(base.RedDot * 1.06));
-    AppState.sensi.Scope2x = Math.min(200, Math.round(base.Scope2x * 1.05));
-    AppState.sensi.Scope4x = Math.min(200, Math.round(base.Scope4x * 1.05));
-    AppState.sensi.Sniper = base.Sniper || 80;
-    AppState.sensi.FreeLook = base.FreeLook || 120;
-    AppState.sensi.ButtonSize = Math.max(40, base.ButtonSize - 3);
-  } else if (presetName === 'PrecisionAim') {
- AppState.sensi.General = Math.max(120, AppState.sensi.General - 6);
- AppState.sensi.RedDot = Math.max(115, AppState.sensi.RedDot - 6);
- AppState.sensi.Scope2x = Math.max(110, AppState.sensi.Scope2x - 4);
- AppState.sensi.Scope4x = Math.max(110, AppState.sensi.Scope4x - 4);
- AppState.sensi.ButtonSize = Math.min(52, AppState.sensi.ButtonSize + 1);
- AppState.phoneSensi.smoothing = Math.min(95, AppState.phoneSensi.smoothing + 5);
- } else if (presetName === 'FastFlick') {
- AppState.sensi.General = Math.min(198, AppState.sensi.General + 6);
- AppState.sensi.RedDot = Math.min(192, AppState.sensi.RedDot + 5);
- AppState.sensi.Scope2x = Math.min(188, AppState.sensi.Scope2x + 4);
- AppState.sensi.Scope4x = Math.min(188, AppState.sensi.Scope4x + 4);
- AppState.sensi.ButtonSize = Math.max(40, AppState.sensi.ButtonSize - 2);
- AppState.phoneSensi.xMultiplier = parseFloat((AppState.phoneSensi.xMultiplier + 0.15).toFixed(2));
- AppState.phoneSensi.yMultiplier = parseFloat((AppState.phoneSensi.yMultiplier + 0.20).toFixed(2));
- } else if (presetName === 'LongRange') {
- AppState.sensi.General = Math.max(120, AppState.sensi.General - 8);
- AppState.sensi.RedDot = Math.max(115, AppState.sensi.RedDot - 10);
- AppState.sensi.Scope2x = Math.min(185, AppState.sensi.Scope2x + 2);
- AppState.sensi.Scope4x = Math.min(185, AppState.sensi.Scope4x + 2);
- AppState.sensi.Sniper = Math.min(82, (AppState.sensi.Sniper || 72) + 4);
- AppState.sensi.ButtonSize = Math.min(52, AppState.sensi.ButtonSize + 2);
- }
- }
+    if (presetName === 'DragHeadshot') {
+      // OB44/OB45 Pro Drag Headshot: Snappy upward lift, calibrated button runway
+      AppState.sensi.General = Math.min(198, Math.max(172, Math.round(base.General * 1.03)));
+      AppState.sensi.RedDot = Math.min(195, Math.max(168, Math.round(base.RedDot * 1.04)));
+      AppState.sensi.Scope2x = Math.min(188, Math.max(155, Math.round(base.Scope2x * 1.02)));
+      AppState.sensi.Scope4x = Math.min(185, Math.max(150, Math.round(base.Scope4x * 1.02)));
+      AppState.sensi.Sniper = base.Sniper || 76;
+      AppState.sensi.FreeLook = base.FreeLook || 135;
+      AppState.sensi.ButtonSize = Math.max(42, Math.min(48, (base.ButtonSize || 46) - 2));
+      if (AppState.phoneSensi) {
+        AppState.phoneSensi.xMultiplier = parseFloat(Math.min(2.4, (base.phoneSensi ? base.phoneSensi.xMultiplier * 1.05 : 1.85)).toFixed(2));
+        AppState.phoneSensi.yMultiplier = parseFloat(Math.min(2.8, (base.phoneSensi ? base.phoneSensi.yMultiplier * 1.10 : 2.25)).toFixed(2));
+        AppState.phoneSensi.smoothing = base.phoneSensi ? base.phoneSensi.smoothing : 80;
+      }
+    } else if (presetName === 'Balanced') {
+      // Tournament standard balanced profile
+      AppState.sensi.General = base.General;
+      AppState.sensi.RedDot = base.RedDot;
+      AppState.sensi.Scope2x = base.Scope2x;
+      AppState.sensi.Scope4x = base.Scope4x;
+      AppState.sensi.Sniper = base.Sniper || 74;
+      AppState.sensi.FreeLook = base.FreeLook || 140;
+      AppState.sensi.ButtonSize = base.ButtonSize || 46;
+      if (base.phoneSensi && AppState.phoneSensi) {
+        AppState.phoneSensi.xMultiplier = base.phoneSensi.xMultiplier;
+        AppState.phoneSensi.yMultiplier = base.phoneSensi.yMultiplier;
+        AppState.phoneSensi.smoothing = base.phoneSensi.smoothing;
+      }
+    } else if (presetName === 'PrecisionAim') {
+      // Low-sens laser spray control for long range ARs
+      AppState.sensi.General = Math.max(140, Math.round(base.General * 0.90));
+      AppState.sensi.RedDot = Math.max(135, Math.round(base.RedDot * 0.89));
+      AppState.sensi.Scope2x = Math.max(130, Math.round(base.Scope2x * 0.90));
+      AppState.sensi.Scope4x = Math.max(125, Math.round(base.Scope4x * 0.90));
+      AppState.sensi.Sniper = Math.max(55, Math.round((base.Sniper || 74) * 0.88));
+      AppState.sensi.FreeLook = Math.max(100, Math.round((base.FreeLook || 140) * 0.88));
+      AppState.sensi.ButtonSize = Math.min(54, (base.ButtonSize || 46) + 3);
+      if (AppState.phoneSensi) {
+        AppState.phoneSensi.smoothing = Math.min(95, (base.phoneSensi ? base.phoneSensi.smoothing : 80) + 8);
+      }
+    } else if (presetName === 'FastFlick') {
+      // Russian / Rusher shotgun flick shot (MP40 / M1887)
+      AppState.sensi.General = Math.min(198, Math.round(base.General * 1.05));
+      AppState.sensi.RedDot = Math.min(196, Math.round(base.RedDot * 1.06));
+      AppState.sensi.Scope2x = Math.min(190, Math.round(base.Scope2x * 1.04));
+      AppState.sensi.Scope4x = Math.min(188, Math.round(base.Scope4x * 1.04));
+      AppState.sensi.Sniper = Math.min(85, Math.round((base.Sniper || 74) * 1.05));
+      AppState.sensi.FreeLook = Math.min(170, Math.round((base.FreeLook || 140) * 1.12));
+      AppState.sensi.ButtonSize = Math.max(40, (base.ButtonSize || 46) - 4);
+      if (AppState.phoneSensi) {
+        AppState.phoneSensi.xMultiplier = parseFloat(Math.min(2.8, (base.phoneSensi ? base.phoneSensi.xMultiplier + 0.20 : 1.95)).toFixed(2));
+        AppState.phoneSensi.yMultiplier = parseFloat(Math.min(3.2, (base.phoneSensi ? base.phoneSensi.yMultiplier + 0.30 : 2.40)).toFixed(2));
+      }
+    } else if (presetName === 'LongRange') {
+      // AWM / Kar98k sniper specialist
+      AppState.sensi.General = Math.max(145, Math.round(base.General * 0.92));
+      AppState.sensi.RedDot = Math.max(138, Math.round(base.RedDot * 0.90));
+      AppState.sensi.Scope2x = Math.min(185, Math.round(base.Scope2x * 1.02));
+      AppState.sensi.Scope4x = Math.min(185, Math.round(base.Scope4x * 1.02));
+      AppState.sensi.Sniper = Math.max(50, Math.round((base.Sniper || 74) * 0.85));
+      AppState.sensi.FreeLook = Math.max(105, Math.round((base.FreeLook || 140) * 0.90));
+      AppState.sensi.ButtonSize = Math.min(52, (base.ButtonSize || 46) + 2);
+    }
+  }
 
  function loadDeviceProfile(modelName, presetName) {
  if (!modelName) modelName = AppState.deviceModel || "Custom Device";
@@ -7227,7 +7260,8 @@
  const allSaved = getStoredDeviceConfigs();
  const savedDev = allSaved[cleanName];
 
- if (savedDev && savedDev.sensi) {
+  const isObsoleteDev = (s) => !s || (s.General === 200 && s.ButtonSize === 28) || (s.Sniper === 100 && s.ButtonSize === 28);
+  if (savedDev && savedDev.sensi && !isObsoleteDev(savedDev.sensi)) {
  AppState.sensi = { ...savedDev.sensi };
  if (savedDev.phoneSensi) {
  AppState.phoneSensi = { ...AppState.phoneSensi, ...savedDev.phoneSensi };
@@ -7315,56 +7349,67 @@
  // =========================================================================
  // 6. PRESETS & TACTICAL PROFILES (Requirement 6: Real Presets, No Hashtags)
  // =========================================================================
- function selectPreset(presetName, btnElem) {
- AppState.activePreset = presetName;
+  function selectPreset(presetName, btnElem) {
+    if (!presetName) presetName = 'DragHeadshot';
+    AppState.activePreset = presetName;
 
- document.querySelectorAll('.s2-preset-tab').forEach(b => b.classList.remove('active'));
- if (btnElem) btnElem.classList.add('active');
+    document.querySelectorAll('.s2-preset-tab').forEach(b => b.classList.remove('active'));
+    if (btnElem) {
+      btnElem.classList.add('active');
+    } else {
+      const allTabs = document.querySelectorAll('.s2-preset-tab');
+      allTabs.forEach(b => {
+        const txt = b.innerText.replace(/[^a-zA-Z]/g, '').toLowerCase();
+        if (txt.includes(presetName.toLowerCase().substring(0, 4))) {
+          b.classList.add('active');
+        }
+      });
+    }
 
- const nameEl = document.getElementById('s2ActivePresetName');
- if (nameEl) nameEl.innerText = presetName;
+    const nameEl = document.getElementById('s2ActivePresetName');
+    if (nameEl) nameEl.innerText = presetName;
 
- // Re-load device baseline and apply selected preset
- const cleanName = AppState.deviceModel || "Custom Device";
- const base = getDeviceSensitivity(cleanName);
- AppState.deviceSpecs = base.specs || getDeviceSpecs(cleanName);
- AppState.profileStatus = base.status || 'verified';
- AppState.profileSource = base.source || 'OB44 Benchmark';
+    // Apply baseline & preset modifier dynamically
+    const cleanName = AppState.deviceModel || "iPhone 11";
+    const base = getDeviceSensitivity(cleanName);
+    AppState.deviceSpecs = base.specs || getDeviceSpecs(cleanName);
+    AppState.profileStatus = base.status || 'verified';
+    AppState.profileSource = base.source || 'OB44 Benchmark';
 
- AppState.sensi = {
- General: base.General,
- RedDot: base.RedDot,
- Scope2x: base.Scope2x,
- Scope4x: base.Scope4x,
- Sniper: base.Sniper || 74,
- FreeLook: base.FreeLook || 140,
- ButtonSize: base.ButtonSize || 46,
- Dpi: AppState.selectedOS === 'iOS' ? 0 : (base.Dpi || 400)
- };
+    AppState.sensi = {
+      General: base.General,
+      RedDot: base.RedDot,
+      Scope2x: base.Scope2x,
+      Scope4x: base.Scope4x,
+      Sniper: base.Sniper || 74,
+      FreeLook: base.FreeLook || 140,
+      ButtonSize: base.ButtonSize || 46,
+      Dpi: AppState.selectedOS === 'iOS' ? 0 : (base.Dpi || 400)
+    };
 
- if (base.phoneSensi) {
- AppState.phoneSensi.xMultiplier = base.phoneSensi.xMultiplier;
- AppState.phoneSensi.yMultiplier = base.phoneSensi.yMultiplier;
- AppState.phoneSensi.smoothing = base.phoneSensi.smoothing;
- }
- if (base.mHard) {
- AppState.mHard.aggression = base.mHard.aggression;
- AppState.mHard.stabilization = base.mHard.stabilization;
- }
+    if (base.phoneSensi && AppState.phoneSensi) {
+      AppState.phoneSensi.xMultiplier = base.phoneSensi.xMultiplier;
+      AppState.phoneSensi.yMultiplier = base.phoneSensi.yMultiplier;
+      AppState.phoneSensi.smoothing = base.phoneSensi.smoothing;
+    }
+    if (base.mHard && AppState.mHard) {
+      AppState.mHard.aggression = base.mHard.aggression;
+      AppState.mHard.stabilization = base.mHard.stabilization;
+    }
 
- applyPresetModifier(presetName);
- persistActiveDeviceConfig();
- applySensiValuesToUI();
- renderRedTxt();
- // Auto-engage headshot lock when Drag Headshot preset is selected
- if (presetName === 'DragHeadshot') {
- const cb = document.getElementById('toggleHeadshotLock');
- if (cb) cb.checked = true;
- activateHeadshotLockEngine(true);
- return;
- }
- showToast(`Loaded Preset: ${presetName}`);
- }
+    applyPresetModifier(presetName);
+    persistActiveDeviceConfig();
+    applySensiValuesToUI();
+    renderRedTxt();
+
+    // Auto-engage headshot lock when Drag Headshot preset is selected
+    if (presetName === 'DragHeadshot') {
+      const cb = document.getElementById('toggleHeadshotLock');
+      if (cb) cb.checked = true;
+      activateHeadshotLockEngine(true);
+    }
+    showToast(`Loaded Preset: ${presetName}`, '', 'success');
+  }
 
  function applySensiValuesToUI() {
  // 1. In-game sensitivity sliders & dual numeric inputs
@@ -9252,26 +9297,30 @@ MANUAL ENTRY STEPS:
   }
 }
 
- function nudgeHeadshotUp() {
- AppState.sensi.General = 200;
- AppState.sensi.RedDot = 200;
- AppState.sensi.Scope2x = 200;
- AppState.sensi.Scope4x = 200;
- AppState.sensi.ButtonSize = Math.max(22, (AppState.sensi.ButtonSize || 28) - 1);
- AppState.phoneSensi.yMultiplier = Math.min(12.0, parseFloat(((AppState.phoneSensi.yMultiplier || 10.0) + 0.5).toFixed(2)));
- applySensiValuesToUI(); renderRedTxt(); persistActiveDeviceConfig();
- showToast(' 10,000,000,000X MAX SNAP BOOST! Y-Lift: ' + AppState.phoneSensi.yMultiplier + 'x', '', 'success');
- }
+  function nudgeHeadshotUp() {
+    AppState.sensi.General = Math.min(200, (AppState.sensi.General || 180) + 2);
+    AppState.sensi.RedDot = Math.min(200, (AppState.sensi.RedDot || 175) + 2);
+    AppState.sensi.Scope2x = Math.min(200, (AppState.sensi.Scope2x || 165) + 2);
+    AppState.sensi.Scope4x = Math.min(200, (AppState.sensi.Scope4x || 160) + 2);
+    AppState.sensi.ButtonSize = Math.max(38, (AppState.sensi.ButtonSize || 46) - 1);
+    if (AppState.phoneSensi) {
+      AppState.phoneSensi.yMultiplier = Math.min(3.2, parseFloat(((AppState.phoneSensi.yMultiplier || 2.1) + 0.1).toFixed(2)));
+    }
+    applySensiValuesToUI(); renderRedTxt(); persistActiveDeviceConfig();
+    showToast('â–² Drag Lift Boosted (+2 Sensi)', '', 'success');
+  }
 
- function nudgeHeadshotDown() {
- AppState.sensi.General = Math.max(180, (AppState.sensi.General || 200) - 4);
- AppState.sensi.RedDot = Math.max(180, (AppState.sensi.RedDot || 200) - 4);
- AppState.sensi.Scope2x = Math.max(180, (AppState.sensi.Scope2x || 200) - 4);
- AppState.sensi.ButtonSize = Math.min(45, (AppState.sensi.ButtonSize || 28) + 2);
- AppState.phoneSensi.yMultiplier = Math.max(4.0, parseFloat(((AppState.phoneSensi.yMultiplier || 10.0) - 0.5).toFixed(2)));
- applySensiValuesToUI(); renderRedTxt(); persistActiveDeviceConfig();
- showToast('▼ Drag Lift Balanced (Y: ' + AppState.phoneSensi.yMultiplier + 'x)', '', 'info');
- }
+  function nudgeHeadshotDown() {
+    AppState.sensi.General = Math.max(140, (AppState.sensi.General || 180) - 2);
+    AppState.sensi.RedDot = Math.max(135, (AppState.sensi.RedDot || 175) - 2);
+    AppState.sensi.Scope2x = Math.max(130, (AppState.sensi.Scope2x || 165) - 2);
+    AppState.sensi.ButtonSize = Math.min(54, (AppState.sensi.ButtonSize || 46) + 1);
+    if (AppState.phoneSensi) {
+      AppState.phoneSensi.yMultiplier = Math.max(1.2, parseFloat(((AppState.phoneSensi.yMultiplier || 2.1) - 0.1).toFixed(2)));
+    }
+    applySensiValuesToUI(); renderRedTxt(); persistActiveDeviceConfig();
+    showToast('â–¼ Drag Lift Balanced (-2 Sensi)', '', 'info');
+  }
 
  function toggleThemePhone(state) {
  AppState.themePhone.enabled = state;
@@ -11515,7 +11564,80 @@ MANUAL ENTRY STEPS:
  showToast("✓ All device configurations reset to factory benchmarks.");
  }
 
- function loadSavedState() {
+function loadSavedState() {
+  // Auto-Purge Obsolete Flat 200/28 Cached Settings Across Storage
+  try {
+    const isObsoleteSensi = (s) => !s || (
+      (s.General === 200 && s.RedDot === 200 && s.Scope2x === 200 && s.ButtonSize === 28) ||
+      (s.General === 200 && s.ButtonSize === 28) ||
+      (s.Sniper === 100 && s.ButtonSize === 28)
+    );
+
+    // Clean profile library
+    const rawLib = (typeof PermanentStorage !== 'undefined' && PermanentStorage.getItem) ? PermanentStorage.getItem('sensi_profile_library') : localStorage.getItem('sensi_profile_library');
+    if (rawLib) {
+      const pLib = JSON.parse(rawLib);
+      if (pLib && Array.isArray(pLib.profiles)) {
+        let libMod = false;
+        pLib.profiles.forEach(p => {
+          if (isObsoleteSensi(p.sensi)) {
+            const dev = p.device || AppState.deviceModel || 'iPhone 11';
+            const fresh = getDeviceSensitivity(dev);
+            p.sensi = {
+              General: fresh.General,
+              RedDot: fresh.RedDot,
+              Scope2x: fresh.Scope2x,
+              Scope4x: fresh.Scope4x,
+              Sniper: fresh.Sniper || 74,
+              FreeLook: fresh.FreeLook || 140,
+              ButtonSize: fresh.ButtonSize || 46,
+              Dpi: (AppState.selectedOS === 'iOS' || (fresh.specs && fresh.specs.includes('iOS'))) ? 0 : (fresh.Dpi || 400)
+            };
+            libMod = true;
+          }
+        });
+        if (libMod) {
+          const sJson = JSON.stringify(pLib);
+          if (typeof PermanentStorage !== 'undefined' && PermanentStorage.setItem) PermanentStorage.setItem('sensi_profile_library', sJson);
+          localStorage.setItem('sensi_profile_library', sJson);
+        }
+      }
+    }
+
+    // Clean stored device configs
+    const rawDev = (typeof PermanentStorage !== 'undefined' && PermanentStorage.getItem) ? PermanentStorage.getItem('sensi_device_configs') : localStorage.getItem('sensi_device_configs');
+    if (rawDev) {
+      const pDev = JSON.parse(rawDev);
+      if (pDev && typeof pDev === 'object') {
+        let devMod = false;
+        Object.keys(pDev).forEach(k => {
+          if (pDev[k] && isObsoleteSensi(pDev[k].sensi)) {
+            delete pDev[k];
+            devMod = true;
+          }
+        });
+        if (devMod) {
+          const dJson = JSON.stringify(pDev);
+          if (typeof PermanentStorage !== 'undefined' && PermanentStorage.setItem) PermanentStorage.setItem('sensi_device_configs', dJson);
+          localStorage.setItem('sensi_device_configs', dJson);
+        }
+      }
+    }
+
+    // Clean stale active sessions (> 2 hours old or with obsolete 200/28)
+    const rawSess = (typeof PermanentStorage !== 'undefined' && PermanentStorage.getItem) ? PermanentStorage.getItem('sensi_active_session') : localStorage.getItem('sensi_active_session');
+    if (rawSess) {
+      try {
+        const sObj = JSON.parse(rawSess);
+        if (sObj && (Date.now() - (sObj.startTime || 0) > 2 * 3600 * 1000)) {
+          if (typeof PermanentStorage !== 'undefined' && PermanentStorage.removeItem) PermanentStorage.removeItem('sensi_active_session');
+          localStorage.removeItem('sensi_active_session');
+        }
+      } catch (e) {}
+    }
+  } catch (e) {
+    console.warn("Storage auto-migration warning:", e);
+  }
  // 1. Language restoration
  const savedLang = PermanentStorage.getItem('sensee_lang') || localStorage.getItem('sensee_lang');
  if (savedLang && I18N[savedLang]) {
@@ -11614,7 +11736,25 @@ MANUAL ENTRY STEPS:
  }
  const active = lib.profiles.find(p => p.id === lib.activeProfileId) || lib.profiles[0];
  if (active) {
- if (active.sensi) AppState.sensi = { ...AppState.sensi, ...active.sensi };
+    const isObs = (s) => !s || (s.General === 200 && s.ButtonSize === 28) || (s.Sniper === 100 && s.ButtonSize === 28);
+    if (active.sensi && !isObs(active.sensi)) {
+      AppState.sensi = { ...AppState.sensi, ...active.sensi };
+    } else {
+      const freshDev = active.device || AppState.deviceModel || 'iPhone 11';
+      const fresh = getDeviceSensitivity(freshDev);
+      active.sensi = {
+        General: fresh.General,
+        RedDot: fresh.RedDot,
+        Scope2x: fresh.Scope2x,
+        Scope4x: fresh.Scope4x,
+        Sniper: fresh.Sniper || 74,
+        FreeLook: fresh.FreeLook || 140,
+        ButtonSize: fresh.ButtonSize || 46,
+        Dpi: (AppState.selectedOS === 'iOS' || (fresh.specs && fresh.specs.includes('iOS'))) ? 0 : (fresh.Dpi || 400)
+      };
+      AppState.sensi = { ...active.sensi };
+      saveProfileLibrary(lib);
+    }
  if (active.device) AppState.deviceModel = active.device;
  if (active.os) AppState.selectedOS = active.os;
  if (AppState.deviceModel && (!active.name || /iPhone 15 Pro/i.test(active.name))) {
@@ -12218,7 +12358,7 @@ MANUAL ENTRY STEPS:
  // =========================================================================
  if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
  window.addEventListener('load', () => {
- navigator.serviceWorker.register('./sw.js?v=36').then((reg) => {
+  navigator.serviceWorker.register('./sw.js?v=38').then((reg) => {
  console.log('SENSI ServiceWorker registered:', reg.scope);
  }).catch((err) => {
  console.log('SENSI ServiceWorker registration skipped:', err);
