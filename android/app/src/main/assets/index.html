@@ -2725,12 +2725,6 @@
 
     // 6. Protection against source inspection shortcuts (No mobile keyboard false positives)
 })();
-    if (performance.now() - start > 120) {
-      lockInterface();
-    }
-  }, 2500);
-
-})();
 </script>
 </head>
 <body>
@@ -12225,7 +12219,7 @@ MANUAL ENTRY STEPS:
  // =========================================================================
  if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
  window.addEventListener('load', () => {
- navigator.serviceWorker.register('./sw.js').then((reg) => {
+ navigator.serviceWorker.register('./sw.js?v=36').then((reg) => {
  console.log('SENSI ServiceWorker registered:', reg.scope);
  }).catch((err) => {
  console.log('SENSI ServiceWorker registration skipped:', err);
