@@ -1,5 +1,5 @@
 // SENSI PRO - High-Performance Offline Service Worker
-const CACHE_NAME = 'sensi-pro-v33';
+const CACHE_NAME = 'sensi-pro-v34';
 const STATIC_ASSETS = [
   './',
   './index.html',
